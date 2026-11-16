@@ -1,0 +1,1780 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>T-Brothers: The Whole Story</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,700;1,7..72,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F2F4F3;
+  --ink:#17212B;
+  --muted:#55636F;
+  --steel:#2E5E7E;
+  --safety:#F5B700;
+  --line:#D3DAE0;
+  --display:'Archivo', 'Helvetica Neue', Arial, sans-serif;
+  --body:'Literata', Georgia, 'Times New Roman', serif;
+  /* Layout: one reading column; every chapter opens with a wide flat illustration */
+  color-scheme: light;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);font-size:1.08rem;line-height:1.72}
+svg text{font-family:var(--display)}
+a{color:var(--steel)}
+a:focus-visible{outline:3px solid var(--safety);outline-offset:3px;border-radius:4px}
+
+.hero{background:var(--ink);color:#F2F4F3;padding:48px 0 0}
+.hero .wrap{display:grid;gap:12px}
+.eyebrow{font-family:var(--display);font-weight:700;font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;color:var(--safety);margin:0}
+.hero h1{font-family:var(--display);font-weight:800;font-size:clamp(2.2rem,6vw,3.6rem);line-height:1.05;margin:0;text-wrap:balance}
+.hero .dek{font-size:1.1rem;color:#C9D3DC;margin:0;max-width:38rem}
+.hero .date{font-family:var(--display);font-size:.9rem;color:#9FB0BF;margin:0}
+.hero figure{margin:28px auto 0;max-width:56rem;padding:0 16px}
+.hero figure svg{border-radius:14px 14px 0 0}
+
+.wrap{max-width:44rem;margin:0 auto;padding:0 20px}
+
+.legend{display:flex;flex-wrap:wrap;gap:10px 22px;margin:28px 0 8px;font-family:var(--display);font-size:.92rem;color:var(--muted)}
+.legend span{display:flex;align-items:center;gap:8px}
+
+nav.toc{margin:20px 0 8px;padding:18px 20px;background:#fff;border:1px solid var(--line);border-radius:12px}
+nav.toc h2{font-family:var(--display);font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:0 0 10px}
+nav.toc ol{margin:0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(auto-fill,minmax(13rem,1fr));gap:6px 18px;font-family:var(--display);font-size:.95rem}
+nav.toc li{display:flex;gap:8px}
+nav.toc .n{color:var(--muted);font-variant-numeric:tabular-nums;min-width:1.4rem}
+nav.toc a{text-decoration:none;color:var(--ink)}
+nav.toc a:hover{color:var(--steel);text-decoration:underline}
+
+section.chapter{padding:40px 0 8px;border-top:1px solid var(--line);margin-top:32px}
+section.chapter:first-of-type{border-top:0}
+.chapter header{display:grid;gap:4px}
+.chapter h2{font-family:var(--display);font-weight:800;font-size:clamp(1.6rem,4vw,2.2rem);line-height:1.15;margin:0;text-wrap:balance}
+.chapter .eyebrow{color:var(--steel)}
+figure.ill{margin:24px auto 26px;max-width:52rem;padding:0 16px}
+figure.ill svg{display:block;width:100%;height:auto;border-radius:14px}
+figure.ill figcaption{font-family:var(--display);font-size:.85rem;color:var(--muted);margin-top:8px;text-align:center}
+
+section.chapter{display:flow-root}
+figure.spot{margin:1.2rem auto 1.4rem;max-width:26rem}
+figure.spot svg{display:block;width:100%;height:auto;border-radius:12px}
+figure.spot figcaption{font-family:var(--display);font-size:.82rem;color:var(--muted);margin-top:6px;text-align:center;text-wrap:balance}
+@media (min-width:760px){
+  figure.spot{float:right;width:44%;max-width:none;margin:.35rem 0 1rem 1.6rem}
+  figure.spot.left{float:left;margin:.35rem 1.6rem 1rem 0}
+}
+figure.talk{clear:both;max-width:42rem;padding:0}
+svg .bub{fill:#fff;stroke:#17212B;stroke-width:2.5;stroke-linejoin:round}
+svg .bt{font-size:15px;font-weight:700;fill:#17212B}
+svg .nm{font-size:11px;font-weight:800;letter-spacing:.12em;fill:#17212B}
+/* Hamburger menu */
+.menu-btn{position:fixed;top:14px;right:14px;z-index:30;width:48px;height:48px;border-radius:12px;border:0;background:var(--safety);color:var(--ink);cursor:pointer;display:grid;place-items:center;box-shadow:0 4px 14px rgba(23,33,43,.25)}
+.menu-btn:focus-visible{outline:3px solid #fff;outline-offset:2px;box-shadow:0 0 0 6px var(--ink)}
+.menu-btn .bars{display:grid;gap:5px}
+.menu-btn .bars span{display:block;width:22px;height:3px;border-radius:2px;background:var(--ink);transition:transform .2s ease,opacity .2s ease}
+.menu-btn[aria-expanded="true"] .bars span:nth-child(1){transform:translateY(8px) rotate(45deg)}
+.menu-btn[aria-expanded="true"] .bars span:nth-child(2){opacity:0}
+.menu-btn[aria-expanded="true"] .bars span:nth-child(3){transform:translateY(-8px) rotate(-45deg)}
+.menu-scrim{position:fixed;inset:0;z-index:20;background:rgba(23,33,43,.45);opacity:0;pointer-events:none;transition:opacity .2s ease}
+.menu-scrim.open{opacity:1;pointer-events:auto}
+.menu-panel{font-family:var(--display);position:fixed;top:0;right:0;bottom:0;z-index:25;width:min(20rem,86vw);background:var(--ink);color:#F2F4F3;padding:76px 22px 24px;overflow-y:auto;transform:translateX(100%);transition:transform .25s ease;visibility:hidden}
+.menu-panel.open{transform:none;visibility:visible}
+.menu-panel h2{font-family:var(--display);font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--safety);margin:0 0 12px}
+.menu-panel ol{list-style:none;margin:0;padding:0;display:grid;gap:2px;font-family:var(--display)}
+.menu-panel a{display:flex;gap:12px;align-items:baseline;padding:9px 10px;border-radius:8px;color:#F2F4F3;text-decoration:none;font-size:1rem}
+.menu-panel a .n{color:#9FB0BF;font-variant-numeric:tabular-nums;min-width:1.5rem;font-size:.9rem}
+.menu-panel a:hover,.menu-panel a:focus-visible{background:rgba(245,183,0,.16);outline:none}
+.menu-panel a.current{background:rgba(245,183,0,.22)}
+.menu-panel a.current .n{color:var(--safety)}
+.menu-panel .top{margin-top:14px;border-top:1px solid rgba(255,255,255,.12);padding-top:14px}
+section.chapter{scroll-margin-top:12px}
+@media (prefers-reduced-motion: reduce){.menu-panel,.menu-scrim,.menu-btn .bars span{transition:none}}
+p{margin:0 0 1.05em}
+b.card{font-weight:700;background:linear-gradient(transparent 58%, rgba(245,183,0,.5) 58%);padding:0 2px;border-radius:2px}
+.mem{text-decoration:underline;text-decoration-color:var(--steel);text-decoration-thickness:2px;text-underline-offset:3px}
+blockquote.screen{overflow:hidden;margin:1.2em 0;padding:.75rem 1.1rem;background:var(--ink);color:#FFE36E;border-left:6px solid var(--safety);border-radius:8px;font-family:ui-monospace,'SFMono-Regular',Menlo,Consolas,monospace;font-size:.98rem;line-height:1.6}
+blockquote.screen p{margin:0}
+
+.tablewrap{overflow-x:auto;margin:1.2em 0 1.4em}
+table{border-collapse:collapse;width:100%;min-width:30rem;font-family:var(--display);font-size:.95rem;background:#fff;border:1px solid var(--line);border-radius:10px;overflow:hidden}
+th,td{text-align:left;padding:10px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:var(--steel);color:#fff;font-weight:700}
+td:first-child,th:first-child{font-variant-numeric:tabular-nums;width:3.5rem}
+tr:last-child td{border-bottom:0}
+
+footer{margin:48px 0 0;padding:32px 0 48px;background:var(--ink);color:#C9D3DC;font-family:var(--display);font-size:.9rem}
+footer p{margin:0}
+footer a{color:var(--safety)}
+
+@media (max-width:420px){body{font-size:1rem}}
+</style>
+</head>
+<body>
+
+<!-- Shared drawing parts -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <symbol id="filter" viewBox="0 0 30 40">
+      <rect x="2" y="4" width="26" height="34" rx="4" fill="#2E5E7E"/>
+      <rect x="2" y="4" width="26" height="7" rx="3" fill="#17212B"/>
+      <rect x="6" y="18" width="18" height="8" rx="2" fill="#F5B700"/>
+    </symbol>
+    <symbol id="filterdent" viewBox="0 0 30 40">
+      <path d="M2 8 a4 4 0 0 1 4 -4 H24 a4 4 0 0 1 4 4 V20 L20 24 L28 28 V34 a4 4 0 0 1 -4 4 H6 a4 4 0 0 1 -4 -4 Z" fill="#2E5E7E"/>
+      <rect x="2" y="4" width="26" height="7" rx="3" fill="#17212B"/>
+      <rect x="6" y="18" width="12" height="8" rx="2" fill="#F5B700"/>
+    </symbol>
+    <symbol id="box" viewBox="0 0 40 34">
+      <rect x="1" y="1" width="38" height="32" rx="2" fill="#C2763A"/>
+      <rect x="1" y="1" width="38" height="8" fill="#A9622D"/>
+      <rect x="16" y="1" width="8" height="12" fill="#E8C9A6"/>
+    </symbol>
+    <symbol id="tote" viewBox="0 0 40 26">
+      <path d="M2 2 H38 L35 24 H5 Z" fill="#7D8B97"/>
+      <rect x="2" y="2" width="36" height="5" fill="#5F6D79"/>
+      <rect x="14" y="12" width="12" height="7" fill="#fff"/>
+      <path d="M16 13 v5 M18 13 v5 M21 13 v5 M23 13 v5" stroke="#17212B" stroke-width="1"/>
+    </symbol>
+    <symbol id="battery" viewBox="0 0 40 32">
+      <rect x="2" y="6" width="36" height="25" rx="2" fill="#17212B"/>
+      <rect x="7" y="2" width="7" height="5" fill="#D9534F"/>
+      <rect x="26" y="2" width="7" height="5" fill="#9AA6B1"/>
+      <rect x="8" y="14" width="24" height="6" rx="1" fill="#F5B700"/>
+    </symbol>
+    <symbol id="person" viewBox="0 0 60 120">
+      <path d="M8 120 V68 a22 22 0 0 1 44 0 V120 Z" fill="currentColor"/>
+      <circle cx="30" cy="24" r="16" fill="#A7AEB6"/>
+    </symbol>
+    <symbol id="pin" viewBox="0 0 30 40">
+      <path d="M15 39 C15 39 2 23 2 14 a13 13 0 0 1 26 0 C28 23 15 39 15 39 Z" fill="currentColor"/>
+      <circle cx="15" cy="14" r="5" fill="#fff"/>
+    </symbol>
+
+    <symbol id="mike" viewBox="0 0 80 170">
+  <rect x="25" y="112" width="13" height="52" rx="4" fill="#2B3A4A"/>
+  <rect x="42" y="112" width="13" height="52" rx="4" fill="#2B3A4A"/>
+  <ellipse cx="33" cy="165" rx="10" ry="4.5" fill="#17212B"/>
+  <ellipse cx="52" cy="165" rx="10" ry="4.5" fill="#17212B"/>
+  <rect x="8" y="70" width="13" height="48" rx="6.5" fill="#56646F"/>
+  <rect x="59" y="70" width="13" height="48" rx="6.5" fill="#56646F"/>
+  <circle cx="14.5" cy="120" r="6" fill="#A7AEB6"/>
+  <circle cx="65.5" cy="120" r="6" fill="#A7AEB6"/>
+  <path d="M16 118 V76 a24 22 0 0 1 48 0 V118 Z" fill="#6B7A87"/>
+  <rect x="35" y="48" width="11" height="10" fill="#A7AEB6"/>
+  <circle cx="39" cy="34" r="18" fill="#EEF0F2"/>
+  <circle cx="42" cy="36" r="16" fill="#A7AEB6"/>
+  <path d="M24 33 q-1 10 6 16 l3 -8 Z" fill="#EEF0F2"/>
+  <path d="M21 31 a19 17 0 0 1 38 0 Z" fill="#D63A2F"/>
+  <rect x="52" y="27" width="22" height="6" rx="3" fill="#A92A22"/>
+  <circle cx="51" cy="36" r="2.2" fill="#17212B"/>
+  <path d="M47 45 q4 3 9 0" fill="none" stroke="#17212B" stroke-width="2" stroke-linecap="round"/>
+  <path d="M43 32 h17 q0 11 -8 11 q-9 0 -9 -11 Z" fill="#7FA8C8" fill-opacity=".45" stroke="#17212B" stroke-width="1.8"/>
+  <path d="M43 32 H31" stroke="#17212B" stroke-width="1.8"/>
+    </symbol>
+    <symbol id="donald" viewBox="0 0 80 170">
+  <rect x="25" y="112" width="13" height="52" rx="4" fill="#3A3F45"/>
+  <rect x="42" y="112" width="13" height="52" rx="4" fill="#3A3F45"/>
+  <ellipse cx="33" cy="165" rx="10" ry="4.5" fill="#17212B"/>
+  <ellipse cx="52" cy="165" rx="10" ry="4.5" fill="#17212B"/>
+  <rect x="8" y="70" width="13" height="48" rx="6.5" fill="#2B3A4A"/>
+  <rect x="59" y="70" width="13" height="48" rx="6.5" fill="#2B3A4A"/>
+  <circle cx="14.5" cy="120" r="6" fill="#A7AEB6"/>
+  <circle cx="65.5" cy="120" r="6" fill="#A7AEB6"/>
+  <path d="M16 118 V76 a24 22 0 0 1 48 0 V118 Z" fill="#2B3A4A"/>
+  <path d="M16 118 V76 a24 22 0 0 1 16 -19 L36 118 Z" fill="#F5B700"/>
+  <path d="M64 118 V76 a24 22 0 0 0 -16 -19 L44 118 Z" fill="#F5B700"/>
+  <rect x="16" y="98" width="20" height="5" fill="#E4E9ED"/>
+  <rect x="44" y="98" width="20" height="5" fill="#E4E9ED"/>
+  <rect x="35" y="48" width="11" height="10" fill="#A7AEB6"/>
+  <circle cx="42" cy="36" r="16" fill="#A7AEB6"/>
+  <path d="M26 34 a16 17 0 0 1 32 0 q-6 -6 -16 -5 q-10 1 -16 5 Z" fill="#3B2A1E"/>
+  <circle cx="30" cy="33" r="6" fill="#3B2A1E"/>
+  <path d="M30 40 q12 18 26 2 q0 10 -12 12 q-12 0 -14 -14 Z" fill="#3B2A1E"/>
+  <circle cx="51" cy="36" r="2.2" fill="#17212B"/>
+  <path d="M46 46 q4 2 8 0" fill="none" stroke="#F2F4F3" stroke-width="2" stroke-linecap="round"/>
+  <rect x="44" y="31" width="15" height="10" rx="2" fill="#fff" fill-opacity=".2" stroke="#17212B" stroke-width="1.3"/>
+  <path d="M44 34 H31" stroke="#17212B" stroke-width="1.3"/>
+    </symbol>
+    <symbol id="robert" viewBox="0 0 80 170">
+  <rect x="25" y="112" width="13" height="52" rx="4" fill="#3A3F45"/>
+  <rect x="42" y="112" width="13" height="52" rx="4" fill="#3A3F45"/>
+  <ellipse cx="33" cy="165" rx="10" ry="4.5" fill="#17212B"/>
+  <ellipse cx="52" cy="165" rx="10" ry="4.5" fill="#17212B"/>
+  <rect x="8" y="70" width="13" height="48" rx="6.5" fill="#7FA8C8"/>
+  <rect x="59" y="70" width="13" height="48" rx="6.5" fill="#7FA8C8"/>
+  <circle cx="14.5" cy="120" r="6" fill="#A7AEB6"/>
+  <circle cx="65.5" cy="120" r="6" fill="#A7AEB6"/>
+  <path d="M16 118 V76 a24 22 0 0 1 48 0 V118 Z" fill="#8FB8D8"/>
+  <path d="M34 58 L40 86 L46 58" fill="none" stroke="#2E5E7E" stroke-width="2.5"/>
+  <rect x="34" y="86" width="12" height="15" rx="2" fill="#fff" stroke="#2E5E7E" stroke-width="1.5"/>
+  <rect x="35" y="48" width="11" height="10" fill="#A7AEB6"/>
+  <circle cx="42" cy="36" r="16" fill="#A7AEB6"/>
+  <path d="M26 34 a16 17 0 0 1 32 0 q-6 -6 -16 -5 q-10 1 -16 5 Z" fill="#17212B"/>
+  <circle cx="30" cy="33" r="6" fill="#17212B"/>
+  <circle cx="51" cy="36" r="2.2" fill="#17212B"/>
+  <circle cx="51" cy="36" r="5.5" fill="none" stroke="#17212B" stroke-width="2"/>
+  <path d="M45.5 35 H33" stroke="#17212B" stroke-width="2"/>
+  <path d="M47 45 q4 3 9 0" fill="none" stroke="#17212B" stroke-width="2" stroke-linecap="round"/>
+    </symbol>
+    <symbol id="prince" viewBox="0 0 80 170">
+  <rect x="25" y="112" width="13" height="52" rx="4" fill="#2B3A4A"/>
+  <rect x="42" y="112" width="13" height="52" rx="4" fill="#2B3A4A"/>
+  <ellipse cx="33" cy="165" rx="10" ry="4.5" fill="#17212B"/>
+  <ellipse cx="52" cy="165" rx="10" ry="4.5" fill="#17212B"/>
+  <rect x="8" y="70" width="13" height="48" rx="6.5" fill="#C8372D"/>
+  <rect x="59" y="70" width="13" height="48" rx="6.5" fill="#C8372D"/>
+  <circle cx="14.5" cy="120" r="6" fill="#A7AEB6"/>
+  <circle cx="65.5" cy="120" r="6" fill="#A7AEB6"/>
+  <path d="M16 118 V76 a24 22 0 0 1 48 0 V118 Z" fill="#C8372D"/>
+  <path d="M16 118 V76 a24 22 0 0 1 16 -19 L36 118 Z" fill="#F08A24"/>
+  <path d="M64 118 V76 a24 22 0 0 0 -16 -19 L44 118 Z" fill="#F08A24"/>
+  <rect x="16" y="98" width="20" height="5" fill="#E4E9ED"/>
+  <rect x="44" y="98" width="20" height="5" fill="#E4E9ED"/>
+  <rect x="35" y="48" width="11" height="10" fill="#A7AEB6"/>
+  <circle cx="42" cy="36" r="16" fill="#A7AEB6"/>
+  <path d="M26 34 a16 17 0 0 1 32 0 q-6 -6 -16 -5 q-10 1 -16 5 Z" fill="#17212B"/>
+  <circle cx="30" cy="33" r="6" fill="#17212B"/>
+  <path d="M30.2 31.7 L25.3 30.7" stroke="#17212B" stroke-width="6" stroke-linecap="round"/>
+  <path d="M31.7 28.2 L25.7 24.5" stroke="#17212B" stroke-width="6" stroke-linecap="round"/>
+  <path d="M34.2 25.3 L29.9 19.8" stroke="#17212B" stroke-width="6" stroke-linecap="round"/>
+  <path d="M37.6 23.5 L35.4 16.9" stroke="#17212B" stroke-width="6" stroke-linecap="round"/>
+  <path d="M41.4 23.0 L41.6 16.0" stroke="#17212B" stroke-width="6" stroke-linecap="round"/>
+  <path d="M45.1 23.8 L47.7 17.3" stroke="#17212B" stroke-width="6" stroke-linecap="round"/>
+  <path d="M48.4 25.8 L53.0 20.6" stroke="#17212B" stroke-width="6" stroke-linecap="round"/>
+  <path d="M50.7 28.8 L55.1 26.5" stroke="#17212B" stroke-width="6" stroke-linecap="round"/>
+  <circle cx="51" cy="36" r="2.2" fill="#17212B"/>
+  <path d="M47 45 q4 3 9 0" fill="none" stroke="#17212B" stroke-width="2" stroke-linecap="round"/>
+    </symbol>
+    <symbol id="manager" viewBox="0 0 80 170">
+  <rect x="25" y="112" width="13" height="52" rx="4" fill="#2B2F36"/>
+  <rect x="42" y="112" width="13" height="52" rx="4" fill="#2B2F36"/>
+  <ellipse cx="33" cy="165" rx="10" ry="4.5" fill="#17212B"/>
+  <ellipse cx="52" cy="165" rx="10" ry="4.5" fill="#17212B"/>
+  <rect x="8" y="70" width="13" height="48" rx="6.5" fill="#4A3B5C"/>
+  <rect x="59" y="70" width="13" height="48" rx="6.5" fill="#4A3B5C"/>
+  <circle cx="14.5" cy="120" r="6" fill="#A7AEB6"/>
+  <circle cx="65.5" cy="120" r="6" fill="#A7AEB6"/>
+  <path d="M16 118 V76 a24 22 0 0 1 48 0 V118 Z" fill="#4A3B5C"/>
+  <path d="M33 56 L40 80 L47 56 Z" fill="#fff"/>
+  <rect x="35" y="48" width="11" height="10" fill="#A7AEB6"/>
+  <circle cx="27" cy="26" r="7" fill="#7A4B2A"/>
+  <circle cx="42" cy="36" r="16" fill="#A7AEB6"/>
+  <path d="M26 34 a16 17 0 0 1 32 0 q-6 -6 -16 -5 q-10 1 -16 5 Z" fill="#7A4B2A"/>
+  <circle cx="30" cy="33" r="6" fill="#7A4B2A"/>
+  <circle cx="51" cy="36" r="2.2" fill="#17212B"/>
+  <path d="M47 45 q4 3 9 0" fill="none" stroke="#17212B" stroke-width="2" stroke-linecap="round"/>
+    </symbol>
+    <symbol id="coworker" viewBox="0 0 80 170">
+  <rect x="25" y="112" width="13" height="52" rx="4" fill="#2B3A4A"/>
+  <rect x="42" y="112" width="13" height="52" rx="4" fill="#2B3A4A"/>
+  <ellipse cx="33" cy="165" rx="10" ry="4.5" fill="#17212B"/>
+  <ellipse cx="52" cy="165" rx="10" ry="4.5" fill="#17212B"/>
+  <rect x="8" y="70" width="13" height="48" rx="6.5" fill="#3E8E6B"/>
+  <rect x="59" y="70" width="13" height="48" rx="6.5" fill="#3E8E6B"/>
+  <circle cx="14.5" cy="120" r="6" fill="#A7AEB6"/>
+  <circle cx="65.5" cy="120" r="6" fill="#A7AEB6"/>
+  <path d="M16 118 V76 a24 22 0 0 1 48 0 V118 Z" fill="#3E8E6B"/>
+  <rect x="35" y="48" width="11" height="10" fill="#A7AEB6"/>
+  <ellipse cx="24" cy="46" rx="5" ry="11" fill="#9C4A26"/>
+  <circle cx="42" cy="36" r="16" fill="#A7AEB6"/>
+  <path d="M26 34 a16 17 0 0 1 32 0 q-6 -6 -16 -5 q-10 1 -16 5 Z" fill="#9C4A26"/>
+  <circle cx="30" cy="33" r="6" fill="#9C4A26"/>
+  <circle cx="51" cy="36" r="2.2" fill="#17212B"/>
+  <path d="M47 45 q4 3 9 0" fill="none" stroke="#17212B" stroke-width="2" stroke-linecap="round"/>
+    </symbol>
+    <symbol id="mikeglasses" viewBox="0 0 80 170">
+  <rect x="25" y="112" width="13" height="52" rx="4" fill="#2B3A4A"/>
+  <rect x="42" y="112" width="13" height="52" rx="4" fill="#2B3A4A"/>
+  <ellipse cx="33" cy="165" rx="10" ry="4.5" fill="#17212B"/>
+  <ellipse cx="52" cy="165" rx="10" ry="4.5" fill="#17212B"/>
+  <rect x="8" y="70" width="13" height="48" rx="6.5" fill="#56646F"/>
+  <rect x="59" y="70" width="13" height="48" rx="6.5" fill="#56646F"/>
+  <circle cx="14.5" cy="120" r="6" fill="#A7AEB6"/>
+  <circle cx="65.5" cy="120" r="6" fill="#A7AEB6"/>
+  <path d="M16 118 V76 a24 22 0 0 1 48 0 V118 Z" fill="#6B7A87"/>
+  <rect x="35" y="48" width="11" height="10" fill="#A7AEB6"/>
+  <circle cx="39" cy="34" r="18" fill="#EEF0F2"/>
+  <circle cx="42" cy="36" r="16" fill="#A7AEB6"/>
+  <path d="M24 33 q-1 10 6 16 l3 -8 Z" fill="#EEF0F2"/>
+  <path d="M21 31 a19 17 0 0 1 38 0 Z" fill="#D63A2F"/>
+  <rect x="52" y="27" width="22" height="6" rx="3" fill="#A92A22"/>
+  <circle cx="51" cy="36" r="2.2" fill="#17212B"/>
+  <path d="M47 45 q4 3 9 0" fill="none" stroke="#17212B" stroke-width="2" stroke-linecap="round"/>
+    
+  <circle cx="52" cy="35" r="9" fill="#FFE36E" fill-opacity=".55" stroke="#17212B" stroke-width="3"/>
+  <path d="M43 34 H28" stroke="#17212B" stroke-width="3"/>
+  <path d="M56 29 l2 -4 M60 32 l4 -2" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+    </symbol>
+    <symbol id="mikephones" viewBox="0 0 80 170">
+  <rect x="25" y="112" width="13" height="52" rx="4" fill="#2B3A4A"/>
+  <rect x="42" y="112" width="13" height="52" rx="4" fill="#2B3A4A"/>
+  <ellipse cx="33" cy="165" rx="10" ry="4.5" fill="#17212B"/>
+  <ellipse cx="52" cy="165" rx="10" ry="4.5" fill="#17212B"/>
+  <rect x="8" y="70" width="13" height="48" rx="6.5" fill="#56646F"/>
+  <rect x="59" y="70" width="13" height="48" rx="6.5" fill="#56646F"/>
+  <circle cx="14.5" cy="120" r="6" fill="#A7AEB6"/>
+  <circle cx="65.5" cy="120" r="6" fill="#A7AEB6"/>
+  <path d="M16 118 V76 a24 22 0 0 1 48 0 V118 Z" fill="#6B7A87"/>
+  <rect x="35" y="48" width="11" height="10" fill="#A7AEB6"/>
+  <circle cx="39" cy="34" r="18" fill="#EEF0F2"/>
+  <circle cx="42" cy="36" r="16" fill="#A7AEB6"/>
+  <path d="M24 33 q-1 10 6 16 l3 -8 Z" fill="#EEF0F2"/>
+  <path d="M21 31 a19 17 0 0 1 38 0 Z" fill="#D63A2F"/>
+  <rect x="52" y="27" width="22" height="6" rx="3" fill="#A92A22"/>
+  <circle cx="51" cy="36" r="2.2" fill="#17212B"/>
+  <path d="M47 45 q4 3 9 0" fill="none" stroke="#17212B" stroke-width="2" stroke-linecap="round"/>
+    
+  <path d="M30 34 Q30 6 54 10" fill="none" stroke="#17212B" stroke-width="4" stroke-linecap="round"/>
+  <ellipse cx="31" cy="38" rx="6" ry="8" fill="#17212B"/>
+  <path d="M43 32 h17 q0 11 -8 11 q-9 0 -9 -11 Z" fill="#7FA8C8" fill-opacity=".45" stroke="#17212B" stroke-width="1.8"/>
+  <path d="M43 32 H31" stroke="#17212B" stroke-width="1.8"/>
+    </symbol>
+    <symbol id="coworker2" viewBox="0 0 80 170">
+  <rect x="25" y="112" width="13" height="52" rx="4" fill="#2B3A4A"/>
+  <rect x="42" y="112" width="13" height="52" rx="4" fill="#2B3A4A"/>
+  <ellipse cx="33" cy="165" rx="10" ry="4.5" fill="#17212B"/>
+  <ellipse cx="52" cy="165" rx="10" ry="4.5" fill="#17212B"/>
+  <rect x="8" y="70" width="13" height="48" rx="6.5" fill="#5B8DB0"/>
+  <rect x="59" y="70" width="13" height="48" rx="6.5" fill="#5B8DB0"/>
+  <circle cx="14.5" cy="120" r="6" fill="#A7AEB6"/>
+  <circle cx="65.5" cy="120" r="6" fill="#A7AEB6"/>
+  <path d="M16 118 V76 a24 22 0 0 1 48 0 V118 Z" fill="#5B8DB0"/>
+  <rect x="35" y="48" width="11" height="10" fill="#A7AEB6"/>
+  
+  <circle cx="42" cy="36" r="16" fill="#A7AEB6"/>
+  <path d="M26 34 a16 17 0 0 1 32 0 q-6 -6 -16 -5 q-10 1 -16 5 Z" fill="#4A3020"/>
+  <circle cx="30" cy="33" r="6" fill="#4A3020"/>
+  <circle cx="51" cy="36" r="2.2" fill="#17212B"/>
+  <path d="M47 45 q4 3 9 0" fill="none" stroke="#17212B" stroke-width="2" stroke-linecap="round"/>
+    
+    </symbol>
+    <symbol id="coworker3" viewBox="0 0 80 170">
+  <rect x="25" y="112" width="13" height="52" rx="4" fill="#2B3A4A"/>
+  <rect x="42" y="112" width="13" height="52" rx="4" fill="#2B3A4A"/>
+  <ellipse cx="33" cy="165" rx="10" ry="4.5" fill="#17212B"/>
+  <ellipse cx="52" cy="165" rx="10" ry="4.5" fill="#17212B"/>
+  <rect x="8" y="70" width="13" height="48" rx="6.5" fill="#8A5A9E"/>
+  <rect x="59" y="70" width="13" height="48" rx="6.5" fill="#8A5A9E"/>
+  <circle cx="14.5" cy="120" r="6" fill="#A7AEB6"/>
+  <circle cx="65.5" cy="120" r="6" fill="#A7AEB6"/>
+  <path d="M16 118 V76 a24 22 0 0 1 48 0 V118 Z" fill="#8A5A9E"/>
+  <rect x="35" y="48" width="11" height="10" fill="#A7AEB6"/>
+  <ellipse cx="24" cy="46" rx="5" ry="11" fill="#E0C068"/>
+  <circle cx="42" cy="36" r="16" fill="#A7AEB6"/>
+  <path d="M26 34 a16 17 0 0 1 32 0 q-6 -6 -16 -5 q-10 1 -16 5 Z" fill="#E0C068"/>
+  <circle cx="30" cy="33" r="6" fill="#E0C068"/>
+  <circle cx="51" cy="36" r="2.2" fill="#17212B"/>
+  <path d="M47 45 q4 3 9 0" fill="none" stroke="#17212B" stroke-width="2" stroke-linecap="round"/>
+    
+    </symbol>
+  </defs>
+</svg>
+
+<button class="menu-btn" id="menu-btn" type="button" aria-label="Open chapter menu" aria-expanded="false" aria-controls="menu-panel">
+  <span class="bars" aria-hidden="true"><span></span><span></span><span></span></span>
+</button>
+<div class="menu-scrim" id="menu-scrim"></div>
+<nav class="menu-panel" id="menu-panel" aria-label="Chapter menu">
+  <h2>Chapters</h2>
+  <ol>
+      <li><a href="#ch1"><span class="n">1</span>The map</a></li>
+      <li><a href="#ch2"><span class="n">2</span>The sticky-note glasses</a></li>
+      <li><a href="#ch3"><span class="n">3</span>The part nobody introduced</a></li>
+      <li><a href="#ch4"><span class="n">4</span>A truck arrives</a></li>
+      <li><a href="#ch5"><span class="n">5</span>Where everything lives</a></li>
+      <li><a href="#ch6"><span class="n">6</span>Twelve stores call</a></li>
+      <li><a href="#ch7"><span class="n">7</span>The scanner's rhythm</a></li>
+      <li><a href="#ch8"><span class="n">8</span>Count day</a></li>
+      <li><a href="#ch9"><span class="n">9</span>The control tower</a></li>
+      <li><a href="#ch10"><span class="n">10</span>Upstairs with Robert</a></li>
+      <li><a href="#ch11"><span class="n">11</span>The test</a></li>
+      <li><a href="#ch12"><span class="n">12</span>The key user panel</a></li>
+      <li><a href="#ch13"><span class="n">13</span>One year later</a></li>
+  </ol>
+  <div class="top"><a href="#top"><span class="n">↑</span>Back to the top</a></div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <p class="eyebrow">A warehouse story in 13 chapters</p>
+    <h1>T-Brothers: The Whole Story</h1>
+    <p class="dek">A story that uses all 202 of your Quizlet cards. Every bold word is a card, and every <span class="mem">Carr Industries</span> or <span class="mem">Corey Financial Company</span> memory is one of your translator cards.</p>
+    <p class="date">October 29, 2026</p>
+  </div>
+  <figure>
+    <svg viewBox="0 0 800 300" role="img" aria-label="The T-Brothers warehouse with three numbered dock doors and a truck backed up to door 3">
+      <rect width="800" height="300" fill="#DCE6EE"/>
+      <circle cx="690" cy="70" r="34" fill="#F5B700"/>
+      <rect x="0" y="252" width="800" height="48" fill="#B9C3CC"/>
+      <rect x="0" y="252" width="800" height="6" fill="#9AA6B1"/>
+      <polygon points="76,104 624,104 604,82 96,82" fill="#17212B"/>
+      <rect x="90" y="104" width="520" height="148" fill="#2E5E7E"/>
+      <rect x="240" y="116" width="220" height="38" rx="4" fill="#F2F4F3"/>
+      <text x="350" y="142" text-anchor="middle" font-weight="800" font-size="22" fill="#17212B" letter-spacing="1">T-BROTHERS</text>
+      <g fill="#1E3F57">
+        <rect x="130" y="176" width="90" height="76"/>
+        <rect x="260" y="176" width="90" height="76"/>
+        <rect x="390" y="176" width="90" height="76"/>
+      </g>
+      <g stroke="#2E5E7E" stroke-width="3">
+        <path d="M130 194 H220 M130 212 H220 M130 230 H220 M260 194 H350 M260 212 H350 M260 230 H350"/>
+      </g>
+      <rect x="400" y="176" width="290" height="66" fill="#F2F4F3" stroke="#17212B" stroke-width="3"/>
+      <g font-weight="800" font-size="14" fill="#17212B" text-anchor="middle">
+        <circle cx="175" cy="166" r="9" fill="#F5B700"/><text x="175" y="171">1</text>
+        <circle cx="305" cy="166" r="9" fill="#F5B700"/><text x="305" y="171">2</text>
+        <circle cx="435" cy="166" r="9" fill="#F5B700"/><text x="435" y="171">3</text>
+      </g>
+      <rect x="690" y="182" width="74" height="60" rx="6" fill="#F5B700"/>
+      <rect x="720" y="190" width="34" height="22" rx="3" fill="#DCE6EE"/>
+      <g fill="#17212B">
+        <circle cx="470" cy="248" r="15"/><circle cx="510" cy="248" r="15"/>
+        <circle cx="640" cy="248" r="15"/><circle cx="740" cy="248" r="15"/>
+      </g>
+      <use href="#donald" x="554" y="180" width="34" height="72"/>
+      <use href="#mike" x="596" y="182" width="33" height="70"/>
+    </svg>
+  </figure>
+</header>
+
+<main class="wrap">
+
+  <div class="legend" aria-label="How to read the highlights">
+    <span><b class="card">bold highlight</b> a Quizlet card</span>
+    <span><span class="mem">underlined name</span> a translator card</span>
+  </div>
+
+  <nav class="toc" aria-label="Chapters">
+    <h2>Chapters</h2>
+    <ol>
+      <li><span class="n">1</span><a href="#ch1">The map</a></li>
+      <li><span class="n">2</span><a href="#ch2">The sticky-note glasses</a></li>
+      <li><span class="n">3</span><a href="#ch3">The part nobody introduced</a></li>
+      <li><span class="n">4</span><a href="#ch4">A truck arrives</a></li>
+      <li><span class="n">5</span><a href="#ch5">Where everything lives</a></li>
+      <li><span class="n">6</span><a href="#ch6">Twelve stores call</a></li>
+      <li><span class="n">7</span><a href="#ch7">The scanner's rhythm</a></li>
+      <li><span class="n">8</span><a href="#ch8">Count day</a></li>
+      <li><span class="n">9</span><a href="#ch9">The control tower</a></li>
+      <li><span class="n">10</span><a href="#ch10">Upstairs with Robert</a></li>
+      <li><span class="n">11</span><a href="#ch11">The test</a></li>
+      <li><span class="n">12</span><a href="#ch12">The key user panel</a></li>
+      <li><span class="n">13</span><a href="#ch13">One year later</a></li>
+    </ol>
+  </nav>
+
+  <!-- Chapter 1 -->
+  <section class="chapter" id="ch1">
+    <header><p class="eyebrow">Chapter 1</p><h2>The map</h2></header>
+    <figure class="ill">
+      <svg viewBox="0 0 760 380" role="img" aria-label="Top-down floor plan of the warehouse showing reserve racks, small-parts shelving, the bulk floor, packing, deconsolidation, receiving, staging lanes and dock doors">
+        <rect x="10" y="10" width="740" height="360" rx="8" fill="#E4E9ED" stroke="#17212B" stroke-width="3"/>
+        <rect x="40" y="30" width="680" height="22" rx="2" fill="#2E5E7E"/>
+        <rect x="40" y="60" width="680" height="22" rx="2" fill="#2E5E7E"/>
+        <text x="380" y="46" text-anchor="middle" font-size="12" font-weight="700" fill="#F2F4F3" letter-spacing="2">RESERVE STORAGE · RACKS</text>
+        <rect x="36" y="198" width="190" height="34" rx="3" fill="#F5B700" opacity=".45"/>
+        <g fill="#5B8DB0">
+          <rect x="44" y="112" width="20" height="120" rx="2"/>
+          <rect x="80" y="112" width="20" height="120" rx="2"/>
+          <rect x="116" y="112" width="20" height="120" rx="2"/>
+          <rect x="152" y="112" width="20" height="120" rx="2"/>
+          <rect x="188" y="112" width="20" height="120" rx="2"/>
+        </g>
+        <text x="40" y="104" font-size="12" font-weight="700" fill="#17212B" letter-spacing="1.5">SMALL PARTS</text>
+        <text x="130" y="248" text-anchor="middle" font-size="11" font-weight="700" fill="#17212B">fast movers</text>
+        <circle cx="90" cy="150" r="9" fill="#D9534F"/>
+        <rect x="104" y="140" width="62" height="20" rx="4" fill="#17212B"/>
+        <text x="135" y="154" text-anchor="middle" font-size="11" font-weight="700" fill="#FFE36E">2-2-202</text>
+        <text x="290" y="212" font-size="12" font-weight="700" fill="#17212B" letter-spacing="1.5">BULK FLOOR</text>
+        <use href="#battery" x="290" y="116" width="42" height="34"/>
+        <use href="#battery" x="340" y="116" width="42" height="34"/>
+        <use href="#battery" x="390" y="116" width="42" height="34"/>
+        <use href="#battery" x="290" y="158" width="42" height="34"/>
+        <use href="#battery" x="340" y="158" width="42" height="34"/>
+        <rect x="560" y="118" width="160" height="70" rx="6" fill="#F2F4F3" stroke="#17212B" stroke-width="2"/>
+        <rect x="574" y="140" width="40" height="30" rx="3" fill="#9AA6B1"/>
+        <rect x="574" y="134" width="40" height="8" rx="2" fill="#17212B"/>
+        <rect x="628" y="132" width="34" height="38" rx="3" fill="#17212B"/>
+        <rect x="634" y="138" width="22" height="6" fill="#F2F4F3"/>
+        <text x="640" y="206" text-anchor="middle" font-size="12" font-weight="700" fill="#17212B" letter-spacing="1.5">PACKING</text>
+        <polyline points="236,250 254,250 254,96 528,96 528,206 640,206" fill="none" stroke="#F5B700" stroke-width="6" stroke-linecap="round" stroke-dasharray="14 9" opacity=".95"/>
+        <rect x="36" y="280" width="118" height="44" rx="4" fill="#C2763A"/>
+        <use href="#tote" x="44" y="270" width="30" height="20"/>
+        <use href="#tote" x="80" y="270" width="30" height="20"/>
+        <use href="#tote" x="116" y="270" width="30" height="20"/>
+        <text x="95" y="342" text-anchor="middle" font-size="11" font-weight="700" fill="#17212B">DECONSOLIDATION</text>
+        <rect x="174" y="268" width="160" height="78" rx="4" fill="none" stroke="#17212B" stroke-width="2" stroke-dasharray="6 5"/>
+        <text x="254" y="300" text-anchor="middle" font-size="12" font-weight="700" fill="#17212B">RECEIVING</text>
+        <use href="#box" x="214" y="308" width="30" height="26"/>
+        <use href="#box" x="252" y="308" width="30" height="26"/>
+        <g fill="none" stroke="#F5B700" stroke-width="4" stroke-dasharray="10 6">
+          <rect x="384" y="262" width="92" height="84" rx="2"/>
+          <rect x="494" y="262" width="92" height="84" rx="2"/>
+          <rect x="604" y="262" width="92" height="84" rx="2"/>
+        </g>
+        <g font-size="13" font-weight="800" fill="#17212B" text-anchor="middle">
+          <text x="430" y="310">E-1</text><text x="540" y="310">E-2</text><text x="650" y="310">E-3</text>
+        </g>
+        <text x="540" y="252" text-anchor="middle" font-size="12" font-weight="700" fill="#17212B" letter-spacing="1.5">STAGING LANES</text>
+        <g fill="#17212B">
+          <rect x="224" y="356" width="60" height="14"/>
+          <rect x="400" y="356" width="60" height="14"/>
+          <rect x="510" y="356" width="60" height="14"/>
+          <rect x="620" y="356" width="60" height="14"/>
+        </g>
+        <g font-size="10" font-weight="800" fill="#F5B700" text-anchor="middle">
+          <text x="254" y="367">DOOR 1</text><text x="430" y="367">DOOR 2</text><text x="540" y="367">DOOR 3</text><text x="650" y="367">DOOR 4</text>
+        </g>
+      </svg>
+      <figcaption>One building, one warehouse number. Each area is a storage type; the yellow line is an activity area.</figcaption>
+    </figure>
+    <p>Your manager at <span class="mem">Carr Industries</span> had big news: the hub is moving to SAP EWM in S/4HANA. To get ready, you're spending three months cross-training at T-Brothers, a partner company that already runs it. Before your first day, your manager hands you a list of <b class="card">job titles to search</b> in the T-Brothers staff directory, so you'll know who to ask: inventory control analyst, inventory specialist, warehouse systems analyst, logistics analyst, SAP key user, and UAT tester.</p>
+    <p>T-Brothers sets you up on the floor as an inventory associate, so you learn the system by doing the work.</p>
+    <figure class="ill talk">
+      <svg viewBox="0 0 640 262" role="img" aria-label="Donald greets Mike at the T-Brothers entrance and says the whole building is one warehouse number; Mike thinks it is like the hub at Carr">
+        <rect width="640" height="262" fill="#DCE6EE"/>
+        <rect x="0" y="240" width="640" height="22" fill="#B9C3CC"/>
+        <rect x="215" y="60" width="210" height="180" fill="#2E5E7E"/><rect x="280" y="146" width="80" height="94" fill="#1E3F57"/><rect x="250" y="98" width="140" height="30" rx="4" fill="#F2F4F3"/><text x="320" y="119" text-anchor="middle" font-size="15" font-weight="800" fill="#17212B">T-BROTHERS</text>
+        <use href="#mike" width="80" height="170" transform="translate(110 87.0) scale(0.9)"/>
+        <text class="nm" x="146" y="255" text-anchor="middle">MIKE</text>
+        <use href="#donald" width="80" height="170" transform="translate(530.0 87.0) scale(-0.9 0.9)"/>
+        <text class="nm" x="494" y="255" text-anchor="middle">DONALD</text>
+        <rect class="bub" x="20" y="14" width="250" height="42" rx="21"/>
+        <circle class="bub" cx="146" cy="72" r="7"/>
+        <circle class="bub" cx="147" cy="84" r="5"/>
+        <text class="bt" x="145" y="40" text-anchor="middle">Like the hub at Carr.</text>
+        <path class="bub" d="M344 12 H606 A14 14 0 0 1 620 26 V60 A14 14 0 0 1 606 74 H501.2 L492 91 L483.2 74 H344 A14 14 0 0 1 330 60 V26 A14 14 0 0 1 344 12 Z"/>
+        <text class="bt" x="475" y="38" text-anchor="middle">This whole building is one</text>
+        <text class="bt" x="475" y="58" text-anchor="middle">warehouse number.</text>
+      </svg>
+      <figcaption>Donald meets Mike at the entrance.</figcaption>
+    </figure>
+    <p>On your first morning, Donald, the warehouse lead, meets you at the entrance. "This whole building is one <b class="card">warehouse number</b> in the system," he says. You think of the hub at <span class="mem">Carr Industries</span>. Same idea, one building, one number.</p>
+    <p>He walks you through. The receiving dock. The small-parts shelving. The bulk floor where batteries sit. The racks in the back. The taped lanes up front. "Each of those is a <b class="card">storage type</b>," he says. "A neighborhood of bins that share the same rules." Inside the small-parts shelving, the fast movers sit up front in their own <b class="card">storage section</b>.</p>
+    <figure class="spot">
+      <svg viewBox="0 0 400 250" role="img" aria-label="The bin label 2-2-202 split into aisle 2, section 2, level 202">
+        <rect width="400" height="250" fill="#E4E9ED"/>
+        <rect x="60" y="34" width="280" height="80" rx="10" fill="#17212B"/>
+        <g font-size="46" font-weight="800" fill="#FFE36E" text-anchor="middle">
+          <text x="112" y="92">2</text><text x="146" y="92">-</text><text x="180" y="92">2</text><text x="214" y="92">-</text><text x="276" y="92">202</text>
+        </g>
+        <g stroke="#2E5E7E" stroke-width="3" fill="none">
+          <path d="M112 118 L80 166"/><path d="M180 118 L200 166"/><path d="M276 118 L320 166"/>
+        </g>
+        <g fill="#2E5E7E">
+          <rect x="30" y="166" width="100" height="36" rx="18"/><rect x="150" y="166" width="100" height="36" rx="18"/><rect x="270" y="166" width="100" height="36" rx="18"/>
+        </g>
+        <g font-size="15" font-weight="800" fill="#fff" text-anchor="middle" letter-spacing="1">
+          <text x="80" y="190">AISLE</text><text x="200" y="190">SECTION</text><text x="320" y="190">LEVEL</text>
+        </g>
+        <text x="200" y="232" text-anchor="middle" font-size="14" font-weight="700" fill="#55636F">aisle-section-level bin structure</text>
+      </svg>
+      <figcaption>A storage bin is an address, not a container.</figcaption>
+    </figure>
+    <p>He taps a label on a shelf: 2-2-202. "That's a <b class="card">storage bin</b>. A location address, not a container. Aisle 2, section 2, level 202." Other warehouse systems call it a location or a slot. At <span class="mem">Carr Industries</span>, it's the shelf location label you scan every day.</p>
+    <p>"Did someone type in every one of these?" you ask.</p>
+    <p>"Nope. Someone set up a <b class="card">bin structure</b>, aisle-section-level, and the system generated thousands of bins at once."</p>
+    <p>He points to a yellow line painted along the floor. "That's a picking route. In the system it's an <b class="card">activity area</b>, a group of bins for one kind of work. Counting zones are activity areas too."</p>
+    <p>The dock and the staging lanes are special, he explains. "They're <b class="card">interim storage types</b>. In-between places where stock waits between moves." The big supply of every part lives in <b class="card">reserve storage</b> in the back. Trucks back up to numbered <b class="card">dock doors</b>, and in front of each door is a <b class="card">staging area</b>, the waiting room between the shelf and the truck. Your store lanes at the hub, you realize. Same thing, different name.</p>
+    <p>Near the dock is a table stacked with empty totes. "The <b class="card">deconsolidation station</b>," Donald says. "Where mixed pallets get split up." Farther along is a station with a scale and a label printer. "The <b class="card">packing work center</b>. Where outgoing parts get checked and boxed."</p>
+    <p>"That's the map," he says. "Now let's look at what's on it."</p>
+  </section>
+
+  <!-- Chapter 2 -->
+  <section class="chapter" id="ch2">
+    <header><p class="eyebrow">Chapter 2</p><h2>The sticky-note glasses</h2></header>
+    <figure class="ill">
+      <svg viewBox="0 0 760 340" role="img" aria-label="A shelf at bin 2-2-202 holding three good oil filters and one dented one, with two floating sticky notes: 3 good and 1 blocked, and a pair of safety glasses in front">
+        <rect width="760" height="340" fill="#DCE6EE"/>
+        <rect x="0" y="306" width="760" height="34" fill="#B9C3CC"/>
+        <rect x="210" y="120" width="12" height="190" fill="#2E5E7E"/>
+        <rect x="570" y="120" width="12" height="190" fill="#2E5E7E"/>
+        <rect x="200" y="222" width="392" height="10" fill="#17212B"/>
+        <rect x="200" y="300" width="392" height="10" fill="#17212B"/>
+        <use href="#filter" x="246" y="166" width="42" height="56"/>
+        <use href="#filter" x="300" y="166" width="42" height="56"/>
+        <use href="#filter" x="354" y="166" width="42" height="56"/>
+        <use href="#filterdent" x="420" y="166" width="42" height="56" transform="rotate(-10 441 194)"/>
+        <rect x="490" y="234" width="72" height="18" rx="3" fill="#F2F4F3"/>
+        <text x="526" y="247" text-anchor="middle" font-size="12" font-weight="800" fill="#17212B">2-2-202</text>
+        <use href="#tote" x="250" y="258" width="64" height="42"/>
+        <use href="#tote" x="330" y="258" width="64" height="42"/>
+        <path d="M320 112 L320 160 M520 116 L450 160" stroke="#17212B" stroke-width="2" stroke-dasharray="4 5"/>
+        <g transform="rotate(-3 315 75)">
+          <rect x="226" y="36" width="180" height="76" fill="#FFE36E"/>
+          <rect x="226" y="36" width="180" height="12" fill="#F5D24A"/>
+          <text x="316" y="76" text-anchor="middle" font-size="18" font-weight="800" fill="#17212B">Oil filters: 3</text>
+          <text x="316" y="99" text-anchor="middle" font-size="15" font-weight="700" fill="#2E7D4F">(good)</text>
+        </g>
+        <g transform="rotate(3 520 80)">
+          <rect x="436" y="44" width="170" height="74" fill="#F7B2A8"/>
+          <rect x="436" y="44" width="170" height="12" fill="#EE9488"/>
+          <text x="521" y="84" text-anchor="middle" font-size="18" font-weight="800" fill="#17212B">Oil filters: 1</text>
+          <text x="521" y="106" text-anchor="middle" font-size="15" font-weight="700" fill="#A8322B">(blocked)</text>
+        </g>
+        <g transform="translate(36 214)">
+          <rect x="0" y="10" width="62" height="44" rx="14" fill="#FFE36E" opacity=".55" stroke="#17212B" stroke-width="7"/>
+          <rect x="80" y="10" width="62" height="44" rx="14" fill="#FFE36E" opacity=".55" stroke="#17212B" stroke-width="7"/>
+          <path d="M62 26 Q71 14 80 26" fill="none" stroke="#17212B" stroke-width="7"/>
+          <path d="M0 22 L-20 12 M142 22 L162 12" stroke="#17212B" stroke-width="7" stroke-linecap="round"/>
+        </g>
+      </svg>
+      <figcaption>Bin, stock, quant: the shelf spot, the parts, and the system's note about them.</figcaption>
+    </figure>
+    <p>Donald pulls a gray plastic <b class="card">tote</b> off a shelf. It has a barcode sticker on the side.</p>
+    <figure class="spot left">
+      <svg viewBox="0 0 400 250" role="img" aria-label="A tote with a barcode becomes a handling unit; a pallet of labeled boxes forms nested handling units">
+        <rect width="400" height="250" fill="#DCE6EE"/>
+        <rect x="0" y="216" width="400" height="34" fill="#B9C3CC"/>
+        <use href="#tote" x="20" y="120" width="120" height="78"/>
+        <path d="M148 158 H186" stroke="#17212B" stroke-width="5" stroke-linecap="round"/>
+        <path d="M178 148 L190 158 L178 168" fill="none" stroke="#17212B" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle cx="218" cy="158" r="26" fill="#F5B700"/>
+        <text x="218" y="165" text-anchor="middle" font-size="18" font-weight="800" fill="#17212B">HU</text>
+        <rect x="262" y="196" width="122" height="14" fill="#C2763A"/>
+        <rect x="270" y="210" width="14" height="8" fill="#A9622D"/><rect x="316" y="210" width="14" height="8" fill="#A9622D"/><rect x="362" y="210" width="14" height="8" fill="#A9622D"/>
+        <use href="#box" x="266" y="150" width="56" height="46"/><use href="#box" x="324" y="150" width="56" height="46"/>
+        <use href="#box" x="266" y="104" width="56" height="46"/><use href="#box" x="324" y="104" width="56" height="46"/>
+        <g fill="#fff"><rect x="276" y="172" width="18" height="12"/><rect x="334" y="172" width="18" height="12"/><rect x="276" y="126" width="18" height="12"/><rect x="334" y="126" width="18" height="12"/></g>
+        <rect x="256" y="92" width="134" height="126" rx="8" fill="none" stroke="#D9534F" stroke-width="3" stroke-dasharray="8 6"/>
+        <text x="80" y="56" text-anchor="middle" font-size="14" font-weight="800" fill="#17212B">tote + barcode</text>
+        <text x="323" y="76" text-anchor="middle" font-size="14" font-weight="800" fill="#D9534F">nested HUs</text>
+        <text x="200" y="240" text-anchor="middle" font-size="13" font-weight="700" fill="#17212B">Scan once, everything inside moves with it</text>
+      </svg>
+      <figcaption>Tote, carton, or pallet: the packaging material.</figcaption>
+    </figure>
+    <p>"A tote is just a container until it gets a barcode," he says. "Then it's a <b class="card">handling unit</b>, an HU. Scan it once, and everything inside moves with it." He points at a pallet stacked with labeled boxes. "Boxes on a pallet, each with its own label. Those are <b class="card">nested handling units</b>." The system also keeps a record of what kind of container each one is. That's its <b class="card">packaging material</b>: tote, carton, or pallet.</p>
+    <p>At <span class="mem">Carr Industries</span>, you track parts individually, one scan per part. Here, one scan moves a whole tote. You've felt that tradeoff in every reconciliation.</p>
+    <p>Then Donald hands you a pair of goofy safety glasses. "Put these on. Pretend they show what the computer believes."</p>
+    <p>You put them on. Yellow sticky notes float in front of every shelf. Over 2-2-202, one note says:</p>
+    <blockquote class="screen"><p>Oil filters: 4 (good)</p></blockquote>
+    <figure class="ill talk">
+      <svg viewBox="0 0 640 262" role="img" aria-label="Mike, wearing the goofy safety glasses, sees a sticky note floating over Donald that reads Donald: 1, unrestricted. Donald tells him only stock gets quants">
+        <rect width="640" height="262" fill="#E4E9ED"/>
+        <rect x="0" y="240" width="640" height="22" fill="#B9C3CC"/>
+        <rect x="250" y="150" width="8" height="90" fill="#2E5E7E"/><rect x="382" y="150" width="8" height="90" fill="#2E5E7E"/><rect x="244" y="196" width="152" height="7" fill="#17212B"/><use href="#filter" x="270" y="160" width="28" height="36"/><use href="#filter" x="304" y="160" width="28" height="36"/><use href="#filter" x="338" y="160" width="28" height="36"/><use href="#filter" x="356" y="160" width="28" height="36"/><g transform="rotate(-3 320 128)"><rect x="262" y="108" width="116" height="34" fill="#FFE36E"/><text x="320" y="130" text-anchor="middle" font-size="12" font-weight="800" fill="#17212B">Oil filters: 4 (good)</text></g>
+        <use href="#mikeglasses" width="80" height="170" transform="translate(90 87.0) scale(0.9)"/>
+        <text class="nm" x="126" y="255" text-anchor="middle">MIKE</text>
+        <use href="#donald" width="80" height="170" transform="translate(530.0 87.0) scale(-0.9 0.9)"/>
+        <text class="nm" x="494" y="255" text-anchor="middle">DONALD</text>
+        <g transform="rotate(6 494 92)"><rect x="420" y="80" width="150" height="26" fill="#FFE36E" stroke="#E0B800" stroke-width="1"/><text x="495" y="98" text-anchor="middle" font-size="11" font-weight="800" fill="#17212B">Donald: 1 (unrestricted)</text></g>
+        <path class="bub" d="M28 12 H280 A14 14 0 0 1 294 26 V60 A14 14 0 0 1 280 74 H136.8 L128 91 L118.80000000000001 74 H28 A14 14 0 0 1 14 60 V26 A14 14 0 0 1 28 12 Z"/>
+        <text class="bt" x="154" y="38" text-anchor="middle">Donald, there's a</text>
+        <text class="bt" x="154" y="58" text-anchor="middle">note on your head.</text>
+        <path class="bub" d="M364 8 H606 A14 14 0 0 1 620 22 V56 A14 14 0 0 1 606 70 H501.2 L492 91 L483.2 70 H364 A14 14 0 0 1 350 56 V22 A14 14 0 0 1 364 8 Z"/>
+        <text class="bt" x="485" y="34" text-anchor="middle">Only stock gets quants.</text>
+        <text class="bt" x="485" y="54" text-anchor="middle">Take those off.</text>
+      </svg>
+      <figcaption>The glasses got a little carried away. Only stock in a bin gets a quant.</figcaption>
+    </figure>
+    <p>"The filters on the shelf are the <b class="card">stock</b>," Donald says. "That note is the <b class="card">quant</b>."</p>
+    <p>You remember the hook: quant is short for quantity. It's the computer's sticky note on a shelf, saying what's there and how many.</p>
+    <p>Donald counts on his fingers. "Bin, stock, quant. The shelf spot, the parts, and the system's note about them."</p>
+    <figure class="ill talk">
+      <svg viewBox="0 0 640 262" role="img" aria-label="Mike asks what happens if the note and the shelf disagree; Donald answers that the shelf wins, always">
+        <rect width="640" height="262" fill="#E4E9ED"/>
+        <rect x="0" y="240" width="640" height="22" fill="#B9C3CC"/>
+        <rect x="250" y="150" width="8" height="90" fill="#2E5E7E"/><rect x="382" y="150" width="8" height="90" fill="#2E5E7E"/><rect x="244" y="196" width="152" height="7" fill="#17212B"/><use href="#filter" x="270" y="160" width="28" height="36"/><use href="#filter" x="304" y="160" width="28" height="36"/><use href="#filter" x="338" y="160" width="28" height="36"/><g transform="rotate(-3 320 128)"><rect x="268" y="108" width="104" height="38" fill="#FFE36E"/><text x="320" y="132" text-anchor="middle" font-size="13" font-weight="800" fill="#17212B">Oil filters: 4</text></g>
+        <use href="#mike" width="80" height="170" transform="translate(110 87.0) scale(0.9)"/>
+        <text class="nm" x="146" y="255" text-anchor="middle">MIKE</text>
+        <use href="#donald" width="80" height="170" transform="translate(530.0 87.0) scale(-0.9 0.9)"/>
+        <text class="nm" x="494" y="255" text-anchor="middle">DONALD</text>
+        <path class="bub" d="M34 12 H276 A14 14 0 0 1 290 26 V60 A14 14 0 0 1 276 74 H156.8 L148 91 L138.8 74 H34 A14 14 0 0 1 20 60 V26 A14 14 0 0 1 34 12 Z"/>
+        <text class="bt" x="155" y="38" text-anchor="middle">And if the note and</text>
+        <text class="bt" x="155" y="58" text-anchor="middle">the shelf disagree?</text>
+        <path class="bub" d="M359 12 H606 A14 14 0 0 1 620 26 V60 A14 14 0 0 1 606 74 H501.2 L492 91 L483.2 74 H359 A14 14 0 0 1 345 60 V26 A14 14 0 0 1 359 12 Z"/>
+        <text class="bt" x="482" y="38" text-anchor="middle">The shelf wins.</text>
+        <text class="bt" x="482" y="58" text-anchor="middle">Always.</text>
+      </svg>
+      <figcaption>Bin, stock, quant, and which one wins.</figcaption>
+    </figure>
+    <p>"And if the note and the shelf disagree?"</p>
+    <p>"The shelf wins. Always. The quant is the system's belief. The shelf is the truth."</p>
+    <p>He lifts out one filter with a dented can. "This one's damaged. Watch." He scans it and changes its <b class="card">stock type</b>, the status that says whether stock can be used. A second note appears over the same bin:</p>
+    <blockquote class="screen"><p>Oil filters: 3 (good)<br>Oil filters: 1 (blocked)</p></blockquote>
+    <p>"That's <b class="card">two quants in one bin</b>," he says. "Same part, same shelf. But different stock types, so different notes."</p>
+    <p>He walks you through the three stock types. <b class="card">Unrestricted stock</b> is good stock that stores can order. <b class="card">Blocked stock</b> is counted but can't be sold or picked.</p>
+    <p>"At <span class="mem">Carr Industries</span>, we call that damaged," you say.</p>
+    <p>"Other places say on hold, quarantine, QC hold, non-sellable, or locked. Same idea."</p>
+    <p>The third is <b class="card">quality inspection stock</b>: stock waiting for a decision before it can be used. <b class="card">Customer returns</b> usually start there, just like the returns you put away at the hub. Someone checks them before they become unrestricted again.</p>
+  </section>
+
+  <!-- Chapter 3 -->
+  <section class="chapter" id="ch3">
+    <header><p class="eyebrow">Chapter 3</p><h2>The part nobody introduced</h2></header>
+    <figure class="ill">
+      <svg viewBox="0 0 760 300" role="img" aria-label="A handheld scanner aimed at a box of LED bulbs shows Product unknown; beside it, a blank product master record">
+        <rect width="760" height="300" fill="#E4E9ED"/>
+        <rect x="0" y="270" width="760" height="30" fill="#B9C3CC"/>
+        <rect x="70" y="132" width="210" height="138" rx="3" fill="#C2763A"/>
+        <rect x="70" y="132" width="210" height="26" fill="#A9622D"/>
+        <rect x="160" y="132" width="30" height="40" fill="#E8C9A6"/>
+        <rect x="96" y="186" width="120" height="30" rx="3" fill="#F2F4F3"/>
+        <text x="156" y="207" text-anchor="middle" font-size="15" font-weight="800" fill="#17212B">LED BULBS</text>
+        <circle cx="246" cy="232" r="22" fill="#F5B700"/>
+        <text x="246" y="242" text-anchor="middle" font-size="28" font-weight="800" fill="#17212B">?</text>
+        <polygon points="420,128 280,176 280,240" fill="#D9534F" opacity=".22"/>
+        <line x1="420" y1="128" x2="280" y2="208" stroke="#D9534F" stroke-width="3"/>
+        <rect x="420" y="40" width="170" height="214" rx="24" fill="#17212B"/>
+        <rect x="438" y="60" width="134" height="96" rx="6" fill="#F2F4F3"/>
+        <text x="505" y="98" text-anchor="middle" font-size="16" font-weight="800" fill="#D9534F">PRODUCT</text>
+        <text x="505" y="120" text-anchor="middle" font-size="16" font-weight="800" fill="#D9534F">UNKNOWN</text>
+        <g fill="#5F6D79">
+          <circle cx="462" cy="180" r="8"/><circle cx="505" cy="180" r="8"/><circle cx="548" cy="180" r="8"/>
+          <circle cx="462" cy="206" r="8"/><circle cx="505" cy="206" r="8"/><circle cx="548" cy="206" r="8"/>
+        </g>
+        <rect x="480" y="226" width="50" height="12" rx="6" fill="#F5B700"/>
+        <rect x="616" y="60" width="124" height="168" rx="8" fill="#fff" stroke="#17212B" stroke-width="2"/>
+        <rect x="616" y="60" width="124" height="28" rx="8" fill="#2E5E7E"/>
+        <text x="678" y="79" text-anchor="middle" font-size="11" font-weight="800" fill="#fff" letter-spacing="1">PRODUCT MASTER</text>
+        <g font-size="11" font-weight="700" fill="#55636F">
+          <text x="630" y="112">Weight</text><text x="630" y="146">Dimensions</text><text x="630" y="180">Case qty</text><text x="630" y="214">Storage type</text>
+        </g>
+        <g stroke="#D3DAE0" stroke-width="6" stroke-linecap="round">
+          <path d="M630 122 H724 M630 156 H724 M630 190 H724"/>
+        </g>
+      </svg>
+      <figcaption>No product master record yet, so the scanner has never met this part.</figcaption>
+    </figure>
+    <p>Back at the dock, a box of new LED headlight bulbs has arrived. You scan it. The scanner says:</p>
+    <blockquote class="screen"><p>Product unknown</p></blockquote>
+    <p>"The system has never met this part," Donald says. "That message means it has no product master record yet."</p>
+    <p>He explains the names. "In EWM, a part is a <b class="card">product</b>. Upstairs in S/4HANA, the same part is a <b class="card">material</b>. Most warehouse people just say <b class="card">SKU</b>, stock keeping unit." At <span class="mem">Carr Industries</span>, it's simply a part, and its part number is what SAP would call the product number or material number.</p>
+    <p>He pulls up an oil filter's record on his screen. Weight. Dimensions. How many come in a case. Which neighborhood it belongs in. "This is the <b class="card">product master</b>," he says. "Upstairs, they call the same record the <b class="card">material master</b>. Every decision about storing a part depends on it: which bin it fits, how many go in a tote, what a full case looks like."</p>
+    <figure class="ill talk">
+      <svg viewBox="0 0 640 262" role="img" aria-label="Mike asks what happens if the product master is wrong; Donald says then everything downstream is wrong">
+        <rect width="640" height="262" fill="#DCE6EE"/>
+        <rect x="0" y="240" width="640" height="22" fill="#B9C3CC"/>
+        <rect x="250" y="118" width="140" height="88" rx="8" fill="#17212B"/><rect x="258" y="126" width="124" height="70" rx="3" fill="#F2F4F3"/><rect x="258" y="126" width="124" height="16" fill="#2E5E7E"/><text x="320" y="138" text-anchor="middle" font-size="9" font-weight="800" fill="#fff" letter-spacing="1">PRODUCT MASTER</text><g stroke="#D3DAE0" stroke-width="5" stroke-linecap="round"><path d="M268 156 H370 M268 170 H350 M268 184 H362"/></g><rect x="312" y="206" width="16" height="22" fill="#17212B"/><rect x="286" y="226" width="68" height="8" rx="4" fill="#17212B"/>
+        <use href="#mike" width="80" height="170" transform="translate(110 87.0) scale(0.9)"/>
+        <text class="nm" x="146" y="255" text-anchor="middle">MIKE</text>
+        <use href="#donald" width="80" height="170" transform="translate(530.0 87.0) scale(-0.9 0.9)"/>
+        <text class="nm" x="494" y="255" text-anchor="middle">DONALD</text>
+        <path class="bub" d="M34 12 H276 A14 14 0 0 1 290 26 V40 A14 14 0 0 1 276 54 H156.8 L148 91 L138.8 54 H34 A14 14 0 0 1 20 40 V26 A14 14 0 0 1 34 12 Z"/>
+        <text class="bt" x="155" y="38" text-anchor="middle">What if it's wrong?</text>
+        <path class="bub" d="M359 12 H606 A14 14 0 0 1 620 26 V60 A14 14 0 0 1 606 74 H501.2 L492 91 L483.2 74 H359 A14 14 0 0 1 345 60 V26 A14 14 0 0 1 359 12 Z"/>
+        <text class="bt" x="482" y="38" text-anchor="middle">Then everything</text>
+        <text class="bt" x="482" y="58" text-anchor="middle">downstream is wrong.</text>
+      </svg>
+      <figcaption>Mike and Donald at the product master.</figcaption>
+    </figure>
+    <figure class="spot">
+      <svg viewBox="0 0 400 250" role="img" aria-label="A product master card showing a battery weight of 4 pounds instead of 40, and a heavy battery sent to the top shelf with a warning sign">
+        <rect width="400" height="250" fill="#E4E9ED"/>
+        <rect x="20" y="40" width="160" height="150" rx="10" fill="#fff" stroke="#17212B" stroke-width="2"/>
+        <rect x="20" y="40" width="160" height="32" rx="10" fill="#2E5E7E"/>
+        <rect x="20" y="60" width="160" height="12" fill="#2E5E7E"/>
+        <text x="100" y="62" text-anchor="middle" font-size="13" font-weight="800" fill="#fff" letter-spacing="1">BATTERY</text>
+        <text x="38" y="100" font-size="13" font-weight="700" fill="#55636F">Weight</text>
+        <text x="100" y="150" text-anchor="middle" font-size="44" font-weight="800" fill="#D9534F">4 lb</text>
+        <text x="100" y="178" text-anchor="middle" font-size="12" font-weight="700" fill="#55636F">should be 40</text>
+        <rect x="226" y="40" width="10" height="190" fill="#2E5E7E"/><rect x="366" y="40" width="10" height="190" fill="#2E5E7E"/>
+        <g fill="#F5B700"><path d="M220 96 Q301 116 382 96 V104 Q301 124 220 104 Z"/><rect x="220" y="160" width="162" height="8"/><rect x="220" y="224" width="162" height="8"/></g>
+        <use href="#battery" x="273" y="62" width="56" height="44"/>
+        <text x="346" y="132" text-anchor="middle" font-size="13" font-weight="800" fill="#D9534F" transform="rotate(-8 346 132)">CREAK</text>
+        <path d="M236 108 l-6 6 M368 108 l6 6 M232 100 l-8 2 M372 100 l8 2" stroke="#D9534F" stroke-width="2.5" stroke-linecap="round"/>
+        <use href="#filter" x="250" y="124" width="28" height="36"/><use href="#filter" x="284" y="124" width="28" height="36"/>
+        <polygon points="350,14 372,52 328,52" fill="#F5B700" stroke="#17212B" stroke-width="3" stroke-linejoin="round"/>
+        <text x="350" y="47" text-anchor="middle" font-size="22" font-weight="800" fill="#17212B">!</text>
+        <path d="M200 160 Q214 100 258 80" fill="none" stroke="#D9534F" stroke-width="4" stroke-dasharray="7 6" stroke-linecap="round"/>
+      </svg>
+      <figcaption>The product master said 4 pounds. The top shelf disagreed.</figcaption>
+    </figure>
+    <p>"What if it's wrong?"</p>
+    <p>"Then everything downstream is wrong." He tells you about the time someone entered a battery's weight as 4 pounds instead of 40. The system kept sending batteries to top shelves until someone noticed.</p>
+    <p>An hour later, someone upstairs creates the record for the LED bulbs. You scan again, and this time the scanner sends you to 3-1-104.</p>
+  </section>
+
+  <!-- Chapter 4 -->
+  <section class="chapter" id="ch4">
+    <header><p class="eyebrow">Chapter 4</p><h2>A truck arrives</h2></header>
+    <figure class="ill">
+      <svg viewBox="0 0 760 320" role="img" aria-label="A supplier truck backed into dock door 3, boxes on the dock, and a clipboard showing 39 of 40 boxes of brake pads">
+        <rect width="760" height="320" fill="#DCE6EE"/>
+        <rect x="0" y="272" width="760" height="48" fill="#B9C3CC"/>
+        <rect x="0" y="40" width="300" height="232" fill="#2E5E7E"/>
+        <rect x="120" y="110" width="160" height="162" fill="#1E3F57"/>
+        <circle cx="200" cy="84" r="17" fill="#F5B700"/>
+        <text x="200" y="91" text-anchor="middle" font-size="20" font-weight="800" fill="#17212B">3</text>
+        <rect x="250" y="120" width="340" height="130" fill="#F2F4F3" stroke="#17212B" stroke-width="3"/>
+        <text x="420" y="192" text-anchor="middle" font-size="18" font-weight="800" fill="#9AA6B1" letter-spacing="2">SUPPLIER</text>
+        <rect x="590" y="150" width="112" height="100" rx="8" fill="#F5B700"/>
+        <rect x="632" y="162" width="56" height="34" rx="4" fill="#DCE6EE"/>
+        <g fill="#17212B">
+          <circle cx="320" cy="262" r="19"/><circle cx="366" cy="262" r="19"/>
+          <circle cx="520" cy="262" r="19"/><circle cx="660" cy="262" r="19"/>
+        </g>
+        <use href="#box" x="14" y="228" width="50" height="43"/>
+        <use href="#box" x="66" y="228" width="50" height="43"/>
+        <use href="#box" x="40" y="186" width="50" height="43"/>
+        <g transform="rotate(4 690 80)">
+          <rect x="630" y="22" width="112" height="124" rx="6" fill="#fff" stroke="#17212B" stroke-width="2"/>
+          <rect x="664" y="14" width="44" height="16" rx="4" fill="#17212B"/>
+          <text x="686" y="54" text-anchor="middle" font-size="11" font-weight="800" fill="#2E5E7E" letter-spacing="1">INBOUND</text>
+          <text x="686" y="78" text-anchor="middle" font-size="12" font-weight="700" fill="#17212B">Brake pads</text>
+          <text x="686" y="114" text-anchor="middle" font-size="26" font-weight="800" fill="#D9534F">39/40</text>
+        </g>
+      </svg>
+      <figcaption>Receiving: check the truck against the inbound delivery, record the difference, then post the goods receipt.</figcaption>
+    </figure>
+    <p>At ten, a supplier's truck backs into dock door 3. Donald already has its list on his screen.</p>
+    <p>"Our buyer upstairs sent this supplier a <b class="card">purchase order</b>," he says. "That created this <b class="card">inbound delivery</b>: the list of what's arriving on the truck."</p>
+    <p>It's your manifest, you think. At the hub, a manifest goes both ways. For an incoming truck, SAP calls it an inbound delivery. For an outgoing truck, an outbound delivery.</p>
+    <p><b class="card">Receiving</b> means checking the truck against the inbound delivery before accepting it. At <span class="mem">Carr Industries</span>, that's validating a shipment against its paperwork. You count. Thirty-nine boxes of brake pads, not forty.</p>
+    <figure class="ill talk">
+      <svg viewBox="0 0 640 262" role="img" aria-label="At the dock, Mike counts thirty-nine boxes, not forty, and Donald tells him to record the quantity difference now">
+        <rect width="640" height="262" fill="#DCE6EE"/>
+        <rect x="0" y="240" width="640" height="22" fill="#B9C3CC"/>
+        <use href="#box" x="240" y="196" width="52" height="44"/><use href="#box" x="294" y="196" width="52" height="44"/><use href="#box" x="348" y="196" width="52" height="44"/><use href="#box" x="266" y="152" width="52" height="44"/><use href="#box" x="320" y="152" width="52" height="44"/><rect x="292" y="118" width="56" height="26" rx="13" fill="#D9534F"/><text x="320" y="136" text-anchor="middle" font-size="14" font-weight="800" fill="#fff">39/40</text>
+        <use href="#mike" width="80" height="170" transform="translate(110 87.0) scale(0.9)"/>
+        <text class="nm" x="146" y="255" text-anchor="middle">MIKE</text>
+        <use href="#donald" width="80" height="170" transform="translate(530.0 87.0) scale(-0.9 0.9)"/>
+        <text class="nm" x="494" y="255" text-anchor="middle">DONALD</text>
+        <path class="bub" d="M34 12 H276 A14 14 0 0 1 290 26 V60 A14 14 0 0 1 276 74 H156.8 L148 91 L138.8 74 H34 A14 14 0 0 1 20 60 V26 A14 14 0 0 1 34 12 Z"/>
+        <text class="bt" x="155" y="38" text-anchor="middle">Thirty-nine,</text>
+        <text class="bt" x="155" y="58" text-anchor="middle">not forty.</text>
+        <path class="bub" d="M359 12 H606 A14 14 0 0 1 620 26 V60 A14 14 0 0 1 606 74 H501.2 L492 91 L483.2 74 H359 A14 14 0 0 1 345 60 V26 A14 14 0 0 1 359 12 Z"/>
+        <text class="bt" x="482" y="38" text-anchor="middle">Record the quantity</text>
+        <text class="bt" x="482" y="58" text-anchor="middle">difference now.</text>
+      </svg>
+      <figcaption>Counting the brake pads at dock door 3.</figcaption>
+    </figure>
+    <p>"Record the <b class="card">quantity difference</b> now," Donald says. "Before we post anything." At the hub, you'd call that a shipment that came in short or missing on delivery.</p>
+    <p>Then Donald posts the <b class="card">goods receipt</b>. "Now the stock is officially ours." At <span class="mem">Carr Industries</span>, that's accepting the shipment.</p>
+    <p>The boxes sit on the dock: received, but not shelved yet. "The dock is an interim storage type," Donald says, "so the system still knows exactly where they are." You remember parts that seemed to vanish at the hub in that same gap. Here, they can't.</p>
+    <p>Next comes <b class="card">putaway</b>: moving received stock from the dock to its bin. At the hub, you'd call it restocking new stock. Your scanner buzzes with a <b class="card">warehouse task</b>, an instruction to move stock from one bin to another:</p>
+    <blockquote class="screen"><p>Move HU 50001234 from DOCK-01 to 4-1-301</p></blockquote>
+    <p>You carry the box to 4-1-301, scan the product, scan the bin, and tap confirm. <b class="card">Confirming a task</b> is what tells the system the move is done, so it can update the quants. It's exactly what you do at <span class="mem">Carr Industries</span> when you scan the part, then scan the shelf.</p>
+    <figure class="spot">
+      <svg viewBox="0 0 400 250" role="img" aria-label="A mixed pallet of brake pads, wiper blades and oil filters split into three separate totes">
+        <rect width="400" height="250" fill="#DCE6EE"/>
+        <rect x="20" y="186" width="140" height="14" fill="#C2763A"/>
+        <rect x="28" y="200" width="14" height="8" fill="#A9622D"/><rect x="83" y="200" width="14" height="8" fill="#A9622D"/><rect x="138" y="200" width="14" height="8" fill="#A9622D"/>
+        <use href="#box" x="24" y="136" width="60" height="50"/>
+        <use href="#filter" x="92" y="130" width="40" height="56"/>
+        <rect x="30" y="122" width="120" height="10" rx="5" fill="#17212B" transform="rotate(-8 90 127)"/>
+        <use href="#box" x="40" y="90" width="50" height="36"/>
+        <use href="#filter" x="100" y="80" width="32" height="44"/>
+        <text x="90" y="232" text-anchor="middle" font-size="14" font-weight="800" fill="#17212B">mixed pallet</text>
+        <path d="M172 140 H210" stroke="#17212B" stroke-width="5" stroke-linecap="round"/>
+        <path d="M200 128 L214 140 L200 152" fill="none" stroke="#17212B" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+        <use href="#tote" x="236" y="52" width="110" height="52"/>
+        <use href="#tote" x="236" y="122" width="110" height="52"/>
+        <use href="#tote" x="236" y="192" width="110" height="52"/>
+        <use href="#box" x="268" y="22" width="44" height="36"/>
+        <rect x="246" y="106" width="92" height="9" rx="4" fill="#17212B"/>
+        <use href="#filter" x="276" y="156" width="30" height="40"/>
+        <g font-size="12" font-weight="800" fill="#55636F">
+          <text x="352" y="84">pads</text><text x="352" y="154">blades</text><text x="352" y="224">filters</text>
+        </g>
+      </svg>
+      <figcaption>Deconsolidation: one tote per destination area.</figcaption>
+    </figure>
+    <p>One pallet is mixed: brake pads, wiper blades, and oil filters stacked together. The scanner sends it to the deconsolidation station. <b class="card">Deconsolidation</b> breaks it into separate totes, one per destination area. At the hub, you do this by hand when you sort a mixed delivery.</p>
+    <p>Your putaway work arrives as one <b class="card">warehouse order</b>: thirteen tasks bundled into one efficient trip for one worker. "Who decides how they're bundled?" you ask.</p>
+    <p>"The <b class="card">warehouse order creation rules</b>," Donald says. "Same area, a sensible number of tasks, a good walking route."</p>
+  </section>
+
+  <!-- Chapter 5 -->
+  <section class="chapter" id="ch5">
+    <header><p class="eyebrow">Chapter 5</p><h2>Where everything lives</h2></header>
+    <figure class="ill">
+      <svg viewBox="0 0 760 340" role="img" aria-label="A rack showing three putaway strategies: a fixed bin for oil filters, addition to existing stock for brake pads, next empty bin for batteries, with a forklift replenishing from reserve">
+        <rect width="760" height="340" fill="#E4E9ED"/>
+        <rect x="0" y="310" width="760" height="30" fill="#B9C3CC"/>
+        <g fill="#2E5E7E">
+          <rect x="50" y="30" width="12" height="282"/><rect x="200" y="30" width="12" height="282"/>
+          <rect x="350" y="30" width="12" height="282"/><rect x="500" y="30" width="12" height="282"/>
+        </g>
+        <g fill="#F5B700">
+          <rect x="50" y="116" width="462" height="8"/><rect x="50" y="210" width="462" height="8"/><rect x="50" y="304" width="462" height="8"/>
+        </g>
+        <use href="#box" x="74" y="60" width="62" height="54"/><use href="#box" x="138" y="60" width="56" height="54"/>
+        <use href="#box" x="224" y="60" width="62" height="54"/><use href="#box" x="288" y="60" width="56" height="54"/>
+        <use href="#box" x="374" y="60" width="62" height="54"/>
+        <text x="281" y="48" text-anchor="middle" font-size="12" font-weight="800" fill="#17212B" letter-spacing="1.5">RESERVE</text>
+        <rect x="66" y="132" width="130" height="76" rx="4" fill="#FFE36E" opacity=".6"/>
+        <use href="#filter" x="78" y="160" width="34" height="46"/><use href="#filter" x="114" y="160" width="34" height="46"/><use href="#filter" x="150" y="160" width="34" height="46"/>
+        <text x="131" y="152" text-anchor="middle" font-size="11" font-weight="800" fill="#17212B">FIXED BIN</text>
+        <use href="#box" x="224" y="166" width="46" height="40"/><use href="#box" x="272" y="166" width="46" height="40"/>
+        <text x="281" y="152" text-anchor="middle" font-size="11" font-weight="800" fill="#17212B">ADD TO EXISTING</text>
+        <use href="#battery" x="374" y="166" width="50" height="40"/>
+        <rect x="430" y="232" width="64" height="70" rx="4" fill="none" stroke="#2E9E6B" stroke-width="3" stroke-dasharray="6 5"/>
+        <use href="#battery" x="74" y="260" width="50" height="40"/><use href="#battery" x="128" y="260" width="50" height="40"/>
+        <use href="#battery" x="224" y="260" width="50" height="40"/><use href="#battery" x="278" y="260" width="50" height="40"/>
+        <use href="#battery" x="374" y="260" width="50" height="40"/>
+        <text x="462" y="226" text-anchor="middle" font-size="11" font-weight="800" fill="#2E9E6B">NEXT EMPTY</text>
+        <path d="M600 210 Q560 190 520 214" fill="none" stroke="#17212B" stroke-width="3" marker-end="url(#arr5)"/>
+        <defs><marker id="arr5" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#17212B"/></marker></defs>
+        <rect x="598" y="80" width="12" height="226" fill="#17212B"/>
+        <rect x="560" y="196" width="50" height="8" fill="#17212B"/>
+        <use href="#box" x="560" y="160" width="44" height="38"/>
+        <rect x="612" y="222" width="116" height="66" rx="8" fill="#F5B700"/>
+        <rect x="652" y="170" width="60" height="54" rx="6" fill="none" stroke="#17212B" stroke-width="6"/>
+        <circle cx="636" cy="294" r="16" fill="#17212B"/><circle cx="706" cy="294" r="16" fill="#17212B"/>
+        <text x="670" y="262" text-anchor="middle" font-size="11" font-weight="800" fill="#17212B">REPLENISH</text>
+      </svg>
+      <figcaption>Putaway strategies choose the bin. Replenishment refills a pick shelf from reserve.</figcaption>
+    </figure>
+    <p>"How did the scanner know to send that box to 4-1-301?" you ask.</p>
+    <p>"A <b class="card">putaway strategy</b>," Donald says. "The rule that chooses a bin when stock comes in. Each neighborhood has one."</p>
+    <p>He counts them off. Batteries use <b class="card">next empty bin</b>: any open spot works. Oil filters use <b class="card">fixed bin</b>: they always live in 2-2-202. Brake pads use <b class="card">addition to existing stock</b>: new pads go into a bin that already holds pads. And if a whole neighborhood is full, the <b class="card">storage type search sequence</b> tells the system which neighborhood to try next.</p>
+    <p>"Here, the system chooses the bin and sends it to your scanner. That's <b class="card">system-directed putaway</b>."</p>
+    <p>At <span class="mem">Carr Industries</span>, you choose the shelf yourself, then scan it to confirm. In SAP terms, that's a <b class="card">worker-chosen destination bin</b>. And because parts at the hub have no fixed homes and go wherever there's room, that's <b class="card">dynamic slotting</b>. In SAP, it looks like no fixed bins, with a putaway strategy like next empty bin.</p>
+    <p>The planning behind all those homes is <b class="card">slotting</b>: deciding where each product should live based on its size, its weight, and how fast it moves. When wiper blades become fast movers every winter, the system suggests <b class="card">rearrangement</b>, moving parts to better bins. "Slotting decides where a part should live," Donald says. "Putaway takes it there."</p>
+    <figure class="spot left">
+      <svg viewBox="0 0 400 250" role="img" aria-label="Side by side: a store shelf planogram with facings, best sellers at eye level, and a warehouse slotting grid driven by how fast parts move">
+        <rect width="400" height="250" fill="#E4E9ED"/>
+        <rect x="16" y="30" width="170" height="170" rx="6" fill="#fff" stroke="#17212B" stroke-width="2"/>
+        <g fill="#17212B"><rect x="16" y="84" width="170" height="5"/><rect x="16" y="140" width="170" height="5"/></g>
+        <g fill="#9AA6B1"><rect x="28" y="56" width="22" height="28"/><rect x="58" y="62" width="22" height="22"/><rect x="88" y="56" width="22" height="28"/></g>
+        <g fill="#D9534F"><rect x="26" y="98" width="24" height="42"/><rect x="54" y="98" width="24" height="42"/><rect x="82" y="98" width="24" height="42"/><rect x="110" y="98" width="24" height="42"/></g>
+        <g fill="#F5B700"><rect x="140" y="104" width="34" height="36"/></g>
+        <use href="#battery" x="26" y="158" width="52" height="40"/><use href="#battery" x="84" y="158" width="52" height="40"/>
+        <text x="101" y="126" text-anchor="middle" font-size="11" font-weight="800" fill="#fff">EYE LEVEL</text>
+        <text x="101" y="224" text-anchor="middle" font-size="14" font-weight="800" fill="#17212B">PLANOGRAM</text>
+        <text x="101" y="242" text-anchor="middle" font-size="11" font-weight="700" fill="#55636F">a person's drawing</text>
+        <text x="200" y="124" text-anchor="middle" font-size="26" font-weight="800" fill="#55636F">≈</text>
+        <g fill="#2E5E7E">
+          <rect x="216" y="96" width="50" height="40" rx="3"/><rect x="270" y="96" width="50" height="40" rx="3"/><rect x="324" y="96" width="50" height="40" rx="3"/>
+          <rect x="216" y="140" width="50" height="40" rx="3"/><rect x="270" y="140" width="50" height="40" rx="3"/><rect x="324" y="140" width="50" height="40" rx="3"/>
+        </g>
+        <rect x="216" y="140" width="50" height="40" rx="3" fill="#F5B700"/>
+        <g fill="#2E9E6B"><rect x="228" y="44" width="16" height="44"/><rect x="252" y="60" width="16" height="28"/><rect x="276" y="72" width="16" height="16"/></g>
+        <text x="306" y="84" font-size="11" font-weight="700" fill="#55636F">speed</text>
+        <text x="295" y="224" text-anchor="middle" font-size="14" font-weight="800" fill="#17212B">SLOTTING</text>
+        <text x="295" y="242" text-anchor="middle" font-size="11" font-weight="700" fill="#55636F">the system's calculation</text>
+      </svg>
+      <figcaption>Close cousins: facings on a store shelf, bins in a warehouse.</figcaption>
+    </figure>
+    <p>You mention the <b class="card">planogram</b> in <span class="mem">Carr Industries</span> stores: a retail map of exactly where each product goes on a shelf. It even sets how many <b class="card">facings</b> each product gets. A facing is one product's front showing on the shelf. Best sellers go at eye level, heavy items go low, and slow movers go up high.</p>
+    <p>"Close cousin," Donald says. "A planogram is a person's drawing for a store shelf. Slotting is the system's calculation for a warehouse bin." In SAP, the nearest thing to a planogram is fixed bin assignments plus slotting.</p>
+    <p>Back at 2-2-202, only three oil filters are left. A forklift driver's scanner buzzes: bring a case from reserve bin 8-1-401. That's <b class="card">replenishment</b>: refilling a pick shelf from reserve storage when it drops below its minimum. At the hub, you'd call it refilling a shelf from the back. Each pick bin has a <b class="card">min and max</b>, the levels that trigger and limit a refill.</p>
+    <figure class="ill talk">
+      <svg viewBox="0 0 640 262" role="img" aria-label="Mike asks who sets the min and max levels; Donald says an inventory analyst, maybe Mike someday">
+        <rect width="640" height="262" fill="#E4E9ED"/>
+        <rect x="0" y="240" width="640" height="22" fill="#B9C3CC"/>
+        <rect x="250" y="140" width="8" height="100" fill="#2E5E7E"/><rect x="382" y="140" width="8" height="100" fill="#2E5E7E"/><rect x="244" y="196" width="152" height="7" fill="#F5B700"/><use href="#filter" x="286" y="160" width="28" height="36"/><use href="#filter" x="320" y="160" width="28" height="36"/><rect x="266" y="208" width="108" height="20" rx="4" fill="#17212B"/><text x="320" y="222" text-anchor="middle" font-size="11" font-weight="800" fill="#FFE36E">MIN 2 · MAX 8</text>
+        <use href="#mike" width="80" height="170" transform="translate(110 87.0) scale(0.9)"/>
+        <text class="nm" x="146" y="255" text-anchor="middle">MIKE</text>
+        <use href="#donald" width="80" height="170" transform="translate(530.0 87.0) scale(-0.9 0.9)"/>
+        <text class="nm" x="494" y="255" text-anchor="middle">DONALD</text>
+        <path class="bub" d="M34 12 H276 A14 14 0 0 1 290 26 V40 A14 14 0 0 1 276 54 H156.8 L148 91 L138.8 54 H34 A14 14 0 0 1 20 40 V26 A14 14 0 0 1 34 12 Z"/>
+        <text class="bt" x="155" y="38" text-anchor="middle">Who sets those?</text>
+        <path class="bub" d="M359 12 H606 A14 14 0 0 1 620 26 V60 A14 14 0 0 1 606 74 H501.2 L492 91 L483.2 74 H359 A14 14 0 0 1 345 60 V26 A14 14 0 0 1 359 12 Z"/>
+        <text class="bt" x="482" y="38" text-anchor="middle">An inventory analyst.</text>
+        <text class="bt" x="482" y="58" text-anchor="middle">Maybe you, someday.</text>
+      </svg>
+      <figcaption>Min and max, and who sets them.</figcaption>
+    </figure>
+    <p>"Who sets those?" you ask.</p>
+    <p>"An inventory analyst, based on how fast each part moves." He looks at you. "Maybe you, someday."</p>
+    <p>A move from one shelf to another is an <b class="card">internal move</b>. And every task, whether putaway, picking, replenishment, or internal move, carries a label called its <b class="card">warehouse process type</b>. It says what kind of move the task is and which rules it follows.</p>
+  </section>
+
+  <!-- Chapter 6 -->
+  <section class="chapter" id="ch6">
+    <header><p class="eyebrow">Chapter 6</p><h2>Twelve stores call</h2></header>
+    <figure class="ill">
+      <svg viewBox="0 0 760 320" role="img" aria-label="Map of the east route: the warehouse connected by a dashed yellow line to six store pins, with a clock at five o'clock and an East wave tag">
+        <rect width="760" height="320" fill="#DCE6EE"/>
+        <g stroke="#F2F4F3" stroke-width="14" fill="none" stroke-linecap="round">
+          <path d="M0 220 H760"/><path d="M200 0 V320"/><path d="M460 0 V320"/><path d="M0 90 H760"/>
+        </g>
+        <rect x="60" y="150" width="110" height="110" rx="6" fill="#2E5E7E"/>
+        <text x="115" y="214" text-anchor="middle" font-size="20" font-weight="800" fill="#F2F4F3">T-B</text>
+        <path d="M170 200 C260 200 280 120 340 120 S430 60 480 70 S560 150 600 140 S660 70 700 64 M480 70 C520 200 560 240 640 250" fill="none" stroke="#F5B700" stroke-width="5" stroke-dasharray="12 8" stroke-linecap="round"/>
+        <g style="color:#D9534F">
+          <use href="#pin" x="326" y="84" width="28" height="38"/>
+          <use href="#pin" x="466" y="34" width="28" height="38"/>
+          <use href="#pin" x="586" y="104" width="28" height="38"/>
+          <use href="#pin" x="686" y="28" width="28" height="38"/>
+          <use href="#pin" x="626" y="214" width="28" height="38"/>
+          <use href="#pin" x="540" y="194" width="28" height="38"/>
+        </g>
+        <g style="color:#9AA6B1">
+          <use href="#pin" x="40" y="40" width="22" height="30"/>
+          <use href="#pin" x="250" y="250" width="22" height="30"/>
+          <use href="#pin" x="120" y="60" width="22" height="30"/>
+          <use href="#pin" x="380" y="250" width="22" height="30"/>
+          <use href="#pin" x="300" y="20" width="22" height="30"/>
+          <use href="#pin" x="20" y="270" width="22" height="30"/>
+        </g>
+        <circle cx="96" cy="100" r="0" fill="none"/>
+        <g transform="translate(690 270)">
+          <circle r="34" fill="#fff" stroke="#17212B" stroke-width="5"/>
+          <path d="M0 0 V-22 M0 0 L-14 10" stroke="#17212B" stroke-width="5" stroke-linecap="round" transform="rotate(150)"/>
+          <circle r="4" fill="#17212B"/>
+        </g>
+        <rect x="490" y="268" width="140" height="34" rx="17" fill="#17212B"/>
+        <text x="560" y="291" text-anchor="middle" font-size="13" font-weight="800" fill="#F5B700" letter-spacing="1">EAST WAVE · 5 PM</text>
+      </svg>
+      <figcaption>Six east-route orders, one wave, one 5 p.m. truck.</figcaption>
+    </figure>
+    <p>After lunch, the phones start ringing. The Main Street store needs two alternators, six oil filters, and a case of wiper blades.</p>
+    <p>Donald enters a <b class="card">sales order</b>, which creates an <b class="card">outbound delivery</b>: the list of what's leaving and for whom. It's like an order entered in CarrNet at <span class="mem">Carr Industries</span>. "Inbound and outbound deliveries are mirror images," he says. "What's arriving, and what's leaving."</p>
+    <p>Some orders go to another T-Brothers location. Those are <b class="card">stock transfers</b>: moving stock to another location in the same company, shipped on an outbound delivery. It's the same as your transfers to other stores at the hub.</p>
+    <p>By three o'clock, twelve stores have called. Donald groups the six east-route orders into a <b class="card">wave</b>, because they all leave on the 5 p.m. truck. At the hub, those are picks timed to a truck departure. He releases the wave, which creates all of its picking tasks at once.</p>
+    <figure class="ill talk">
+      <svg viewBox="0 0 640 262" role="img" aria-label="Mike explains that a wave groups deliveries and a warehouse order groups tasks; Donald says exactly">
+        <rect width="640" height="262" fill="#DCE6EE"/>
+        <rect x="0" y="240" width="640" height="22" fill="#B9C3CC"/>
+        <circle cx="320" cy="150" r="34" fill="#fff" stroke="#17212B" stroke-width="5"/><path d="M320 150 V126 M320 150 L338 150" stroke="#17212B" stroke-width="5" stroke-linecap="round"/><rect x="262" y="198" width="116" height="28" rx="14" fill="#17212B"/><text x="320" y="217" text-anchor="middle" font-size="12" font-weight="800" fill="#F5B700" letter-spacing="1">EAST WAVE</text>
+        <use href="#mike" width="80" height="170" transform="translate(110 87.0) scale(0.9)"/>
+        <text class="nm" x="146" y="255" text-anchor="middle">MIKE</text>
+        <use href="#donald" width="80" height="170" transform="translate(530.0 87.0) scale(-0.9 0.9)"/>
+        <text class="nm" x="494" y="255" text-anchor="middle">DONALD</text>
+        <path class="bub" d="M28 12 H300 A14 14 0 0 1 314 26 V80 A14 14 0 0 1 300 94 H156.8 L148 91 L138.8 94 H28 A14 14 0 0 1 14 80 V26 A14 14 0 0 1 28 12 Z"/>
+        <text class="bt" x="164" y="38" text-anchor="middle">A wave groups deliveries.</text>
+        <text class="bt" x="164" y="58" text-anchor="middle">A warehouse order</text>
+        <text class="bt" x="164" y="78" text-anchor="middle">groups tasks.</text>
+        <path class="bub" d="M444 26 H586 A14 14 0 0 1 600 40 V54 A14 14 0 0 1 586 68 H501.2 L492 91 L483.2 68 H444 A14 14 0 0 1 430 54 V40 A14 14 0 0 1 444 26 Z"/>
+        <text class="bt" x="515" y="52" text-anchor="middle">Exactly.</text>
+      </svg>
+      <figcaption>Mike tests himself out loud.</figcaption>
+    </figure>
+    <p>You test yourself out loud. "Wave versus warehouse order: a wave groups deliveries by deadline, and a warehouse order groups tasks for one worker."</p>
+    <p>"Exactly."</p>
+    <p><b class="card">Picking</b> moves stock from its bin toward staging for an outbound delivery. Each pick is a warehouse task, just like a pick in the Carr Picking app. Once you start your warehouse order, it's assigned to you, and nobody else can take it. That's just like the Carr Picking app locking a pick to whoever started it.</p>
+    <figure class="spot">
+      <svg viewBox="0 0 400 250" role="img" aria-label="Three removal strategies: FIFO takes the oldest, FEFO takes the soonest to expire, LIFO takes the newest">
+        <rect width="400" height="250" fill="#DCE6EE"/>
+        <g font-size="18" font-weight="800" fill="#17212B" text-anchor="middle"><text x="70" y="34">FIFO</text><text x="200" y="34">FEFO</text><text x="330" y="34">LIFO</text></g>
+        <g font-size="11" font-weight="700" fill="#55636F" text-anchor="middle"><text x="70" y="52">oldest out</text><text x="200" y="52">expires first</text><text x="330" y="52">newest out</text></g>
+        <g fill="#2E5E7E">
+          <rect x="22" y="66" width="96" height="40" rx="4"/><rect x="22" y="112" width="96" height="40" rx="4"/>
+          <rect x="152" y="66" width="96" height="40" rx="4"/><rect x="152" y="158" width="96" height="40" rx="4"/>
+          <rect x="282" y="112" width="96" height="40" rx="4"/><rect x="282" y="158" width="96" height="40" rx="4"/>
+        </g>
+        <g fill="#F5B700">
+          <rect x="22" y="158" width="96" height="40" rx="4"/>
+          <rect x="152" y="112" width="96" height="40" rx="4"/>
+          <rect x="282" y="66" width="96" height="40" rx="4"/>
+        </g>
+        <g font-size="14" font-weight="800" text-anchor="middle">
+          <text x="70" y="91" fill="#fff">Mar</text><text x="70" y="137" fill="#fff">Feb</text><text x="70" y="183" fill="#17212B">Jan</text>
+          <text x="200" y="91" fill="#fff">exp 9/27</text><text x="200" y="137" fill="#17212B">exp 3/27</text><text x="200" y="183" fill="#fff">exp 6/27</text>
+          <text x="330" y="91" fill="#17212B">Mar</text><text x="330" y="137" fill="#fff">Feb</text><text x="330" y="183" fill="#fff">Jan</text>
+        </g>
+        <g fill="#17212B" font-size="12" font-weight="800" text-anchor="middle">
+          <text x="70" y="228">picked first: Jan</text><text x="200" y="228">picked: 3/27</text><text x="330" y="228">picked first: Mar</text>
+        </g>
+      </svg>
+      <figcaption>The removal strategy decides which bin you pick from.</figcaption>
+    </figure>
+    <p>The batteries are spread across three bins. Which one do you pick from? A <b class="card">removal strategy</b> decides. Batteries use <b class="card">FIFO</b>, first in, first out, because they lose charge sitting on a shelf. Anything with an expiration date uses <b class="card">FEFO</b>, first expired, first out. And <b class="card">LIFO</b>, last in, first out, ships the newest stock first when age doesn't matter.</p>
+    <p>At the packing work center, <b class="card">packing</b> checks every picked part against the delivery. The parts go into a shipping carton that becomes a new HU, and it gets a label. The carton rides a conveyor to staging lane E-3.</p>
+    <p>At 4:45, the east-route truck is loaded and the doors close. Only then does Donald post the <b class="card">goods issue</b>, which makes the outgoing stock officially gone. "Only once the truck is really loaded," he says. "Never before." At the hub, that's loading the truck and sending it out.</p>
+  </section>
+
+  <!-- Chapter 7 -->
+  <section class="chapter" id="ch7">
+    <header><p class="eyebrow">Chapter 7</p><h2>The scanner's rhythm</h2></header>
+    <figure class="ill">
+      <svg viewBox="0 0 760 300" role="img" aria-label="The RF rhythm in four steps: scan bin, scan product, enter quantity, confirm. A red callout at step three reads bin denial, only one here">
+        <rect width="760" height="300" fill="#E4E9ED"/>
+        <g stroke="#9AA6B1" stroke-width="6" stroke-linecap="round">
+          <path d="M170 160 H222 M340 160 H392 M510 160 H562"/>
+        </g>
+        <g fill="#2E5E7E">
+          <circle cx="110" cy="160" r="58"/><circle cx="280" cy="160" r="58"/><circle cx="452" cy="160" r="58"/>
+        </g>
+        <circle cx="622" cy="160" r="58" fill="#2E9E6B"/>
+        <g stroke="#F2F4F3" stroke-width="4">
+          <path d="M84 136 v48 M92 136 v48 M98 136 v48 M108 136 v48 M114 136 v48 M124 136 v48 M130 136 v48 M136 136 v48"/>
+        </g>
+        <use href="#box" x="252" y="136" width="56" height="48"/>
+        <text x="452" y="180" text-anchor="middle" font-size="50" font-weight="800" fill="#F2F4F3">2</text>
+        <path d="M596 162 L614 182 L650 140" fill="none" stroke="#F2F4F3" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+        <g font-size="14" font-weight="800" fill="#17212B" text-anchor="middle">
+          <text x="110" y="246">Scan bin</text><text x="280" y="246">Scan product</text><text x="452" y="246">Enter qty</text><text x="622" y="246">Confirm</text>
+        </g>
+        <g>
+          <rect x="370" y="22" width="166" height="52" rx="10" fill="#D9534F"/>
+          <polygon points="440,74 452,92 464,74" fill="#D9534F"/>
+          <text x="453" y="44" text-anchor="middle" font-size="13" font-weight="800" fill="#fff" letter-spacing="1">BIN DENIAL</text>
+          <text x="453" y="63" text-anchor="middle" font-size="12" font-weight="700" fill="#fff">only 1 at 2-4-101</text>
+        </g>
+      </svg>
+      <figcaption>Each scan proves you're in the right place with the right part. Never confirm a wrong quantity.</figcaption>
+    </figure>
+    <p>The next day, Donald lets you run picks on your own. You log into the <b class="card">RF scanner</b>, the handheld that asks one question at a time and checks every scan. <b class="card">RF</b> stands for radio frequency, the warehouse word for handheld scanners. At <span class="mem">Carr Industries</span>, it's simply the warehouse scanner.</p>
+    <p>The <b class="card">RF menu</b> lists your jobs: putaway, picking, physical inventory, and inquiry. You choose picking, and the <b class="card">RF rhythm</b> settles in. Scan the bin, scan the product, enter the quantity, go to the destination. Each scan proves you're in the right place with the right part.</p>
+    <figure class="ill talk">
+      <svg viewBox="0 0 640 262" role="img" aria-label="Mike, wearing headphones, dances in the aisle with music notes around him, singing scan the bin, scan the part, enter the quantity, and go">
+        <rect width="640" height="262" fill="#DCE6EE"/>
+        <rect x="0" y="240" width="640" height="22" fill="#B9C3CC"/>
+        <g transform="translate(110 150) rotate(-12)"><rect x="6" y="-26" width="3.5" height="26" fill="#2E5E7E"/><ellipse cx="3" cy="0" rx="7" ry="5" fill="#2E5E7E" transform="rotate(-20 3 0)"/><path d="M9.5 -26 q10 4 8 14" fill="none" stroke="#2E5E7E" stroke-width="3"/></g><g transform="translate(300 120) rotate(10)"><rect x="6" y="-26" width="3.5" height="26" fill="#2E5E7E"/><ellipse cx="3" cy="0" rx="7" ry="5" fill="#2E5E7E" transform="rotate(-20 3 0)"/><path d="M9.5 -26 q10 4 8 14" fill="none" stroke="#2E5E7E" stroke-width="3"/></g><g transform="translate(330 176) rotate(-6)"><rect x="6" y="-26" width="3.5" height="26" fill="#2E5E7E"/><ellipse cx="3" cy="0" rx="7" ry="5" fill="#2E5E7E" transform="rotate(-20 3 0)"/><path d="M9.5 -26 q10 4 8 14" fill="none" stroke="#2E5E7E" stroke-width="3"/></g><g transform="translate(86 196) rotate(8)"><rect x="6" y="-26" width="3.5" height="26" fill="#2E5E7E"/><ellipse cx="3" cy="0" rx="7" ry="5" fill="#2E5E7E" transform="rotate(-20 3 0)"/><path d="M9.5 -26 q10 4 8 14" fill="none" stroke="#2E5E7E" stroke-width="3"/></g><rect x="420" y="130" width="8" height="110" fill="#2E5E7E"/><rect x="600" y="130" width="8" height="110" fill="#2E5E7E"/><rect x="414" y="190" width="200" height="7" fill="#17212B"/><g transform="translate(470 168)"><circle r="20" fill="#9AA6B1"/><circle r="9" fill="#5F6D79"/></g><g transform="translate(530 168)"><circle r="20" fill="#9AA6B1"/><circle r="9" fill="#5F6D79"/></g><path d="M178 238 l-12 -6 M246 238 l12 -6" stroke="#17212B" stroke-width="3" stroke-linecap="round"/>
+        <use href="#mikephones" width="80" height="170" transform="rotate(-7 206 240) translate(170 87.0) scale(0.9)"/>
+        <text class="nm" x="206" y="255" text-anchor="middle">MIKE</text>
+        <path class="bub" d="M44 10 H386 A14 14 0 0 1 400 24 V58 A14 14 0 0 1 386 72 H216.8 L208 91 L198.8 72 H44 A14 14 0 0 1 30 58 V24 A14 14 0 0 1 44 10 Z"/>
+        <text class="bt" x="215" y="36" text-anchor="middle">Scan the bin, scan the part,</text>
+        <text class="bt" x="215" y="56" text-anchor="middle">enter the qty, and go!</text>
+      </svg>
+      <figcaption>The RF rhythm: scan the bin, scan the product, enter the quantity, go to the destination. Dancing optional.</figcaption>
+    </figure>
+    <p>At 2-4-101, the scanner wants two alternators. There's only one.</p>
+    <figure class="ill talk">
+      <svg viewBox="0 0 640 262" role="img" aria-label="Mike stands at bin 2-4-101 with one alternator and his scanner, remembering Donald's rule: never confirm a wrong quantity">
+        <rect width="640" height="262" fill="#E4E9ED"/>
+        <rect x="0" y="240" width="640" height="22" fill="#B9C3CC"/>
+        <rect x="380" y="130" width="8" height="110" fill="#2E5E7E"/><rect x="560" y="130" width="8" height="110" fill="#2E5E7E"/><rect x="374" y="190" width="200" height="7" fill="#17212B"/><g transform="translate(440 168)"><circle r="22" fill="#9AA6B1"/><circle r="10" fill="#5F6D79"/><rect x="16" y="-5" width="16" height="10" rx="3" fill="#5F6D79"/></g><rect x="486" y="200" width="70" height="18" rx="3" fill="#F2F4F3"/><text x="521" y="213" text-anchor="middle" font-size="11" font-weight="800" fill="#17212B">2-4-101</text><rect x="250" y="170" width="16" height="28" rx="3" fill="#17212B"/><rect x="252" y="174" width="12" height="9" fill="#9FD3B5"/>
+        <use href="#mike" width="80" height="170" transform="translate(190 87.0) scale(0.9)"/>
+        <text class="nm" x="226" y="255" text-anchor="middle">MIKE</text>
+        <rect class="bub" x="30" y="10" width="300" height="62" rx="31"/>
+        <circle class="bub" cx="197" cy="83" r="7"/>
+        <circle class="bub" cx="213" cy="89" r="5"/>
+        <text class="bt" x="180" y="36" text-anchor="middle">Never confirm a</text>
+        <text class="bt" x="180" y="56" text-anchor="middle">wrong quantity.</text>
+      </svg>
+      <figcaption>At 2-4-101, Donald's rule comes to mind.</figcaption>
+    </figure>
+    <p>You hear Donald's voice in your head: <b class="card">never confirm a wrong quantity</b>. Instead, you enter an <b class="card">exception code</b>, which is how you tell the scanner reality didn't match what it expected. You choose <b class="card">bin denial</b>, meaning the bin can't supply the full pick quantity. At the hub, you'd call it a short shelf during a pick. The scanner sends you to 2-4-103 for the second alternator, and it flags 2-4-101 for a count.</p>
+    <p>You slip the sticky-note glasses back on to watch what happens.</p>
+    <figure class="spot">
+      <svg viewBox="0 0 400 250" role="img" aria-label="An alternator moves from bin 2-4-103 to staging lane E-3; the sticky note on the bin drops by one and a new note appears on the lane">
+        <rect width="400" height="250" fill="#E4E9ED"/>
+        <rect x="20" y="150" width="130" height="8" fill="#17212B"/>
+        <rect x="26" y="158" width="8" height="70" fill="#2E5E7E"/><rect x="136" y="158" width="8" height="70" fill="#2E5E7E"/>
+        <g transform="translate(64 128)"><circle r="20" fill="#9AA6B1"/><circle r="9" fill="#5F6D79"/><rect x="14" y="-5" width="16" height="10" rx="3" fill="#5F6D79"/></g>
+        <g transform="translate(110 128)"><circle r="20" fill="#9AA6B1"/><circle r="9" fill="#5F6D79"/></g>
+        <g transform="rotate(-3 85 60)">
+          <rect x="22" y="30" width="126" height="64" fill="#FFE36E"/>
+          <text x="85" y="56" text-anchor="middle" font-size="13" font-weight="800" fill="#17212B">2-4-103</text>
+          <text x="85" y="80" text-anchor="middle" font-size="16" font-weight="800" fill="#D9534F">−1</text>
+        </g>
+        <path d="M156 150 C200 110 220 110 250 140" fill="none" stroke="#17212B" stroke-width="3" stroke-dasharray="7 6"/>
+        <g transform="translate(206 120)"><circle r="16" fill="#9AA6B1"/><circle r="7" fill="#5F6D79"/></g>
+        <rect x="250" y="150" width="130" height="78" fill="none" stroke="#F5B700" stroke-width="4" stroke-dasharray="10 6"/>
+        <g transform="translate(316 190)"><circle r="20" fill="#9AA6B1"/><circle r="9" fill="#5F6D79"/></g>
+        <g transform="rotate(3 315 64)">
+          <rect x="252" y="32" width="126" height="64" fill="#FFE36E"/>
+          <text x="315" y="58" text-anchor="middle" font-size="13" font-weight="800" fill="#17212B">Lane E-3</text>
+          <text x="315" y="82" text-anchor="middle" font-size="16" font-weight="800" fill="#2E9E6B">+1</text>
+        </g>
+        <text x="200" y="244" text-anchor="middle" font-size="13" font-weight="800" fill="#17212B">confirm the task, and the note moves</text>
+      </svg>
+      <figcaption>The quant follows the stock.</figcaption>
+    </figure>
+    <p>As you confirm the pick, the note over 2-4-103 drops by one, and a new note appears over staging lane E-3. That's <b class="card">what updates a quant</b>: confirming a warehouse task. Scanning without confirming changes nothing.</p>
+    <p>The lesson clicks. The <b class="card">quant follows the stock</b>. When stock moves, its note moves with it, even to the dock or a staging lane.</p>
+    <p>At 4:45, the truck pulls away and Donald posts the goods issue. You watch the note over lane E-3 fade out. That's <b class="card">when a quant disappears</b>: when the goods issue is posted and the stock leaves inventory.</p>
+  </section>
+
+  <!-- Chapter 8 -->
+  <section class="chapter" id="ch8">
+    <header><p class="eyebrow">Chapter 8</p><h2>Count day</h2></header>
+    <figure class="ill">
+      <svg viewBox="0 0 760 300" role="img" aria-label="A blind count clipboard for bin 2-2-202, a magnifying glass over one good and one dented filter, and the missing filter found in staging lane E-3">
+        <rect width="760" height="300" fill="#DCE6EE"/>
+        <rect x="0" y="268" width="760" height="32" fill="#B9C3CC"/>
+        <g transform="rotate(-4 120 150)">
+          <rect x="40" y="40" width="160" height="210" rx="8" fill="#C2763A"/>
+          <rect x="54" y="58" width="132" height="180" rx="4" fill="#fff"/>
+          <rect x="94" y="30" width="52" height="20" rx="5" fill="#17212B"/>
+          <text x="120" y="90" text-anchor="middle" font-size="12" font-weight="800" fill="#2E5E7E" letter-spacing="1">COUNT BIN</text>
+          <text x="120" y="114" text-anchor="middle" font-size="18" font-weight="800" fill="#17212B">2-2-202</text>
+          <text x="70" y="150" font-size="12" font-weight="700" fill="#55636F">Expected</text>
+          <text x="168" y="150" text-anchor="end" font-size="16" font-weight="800" fill="#17212B">?</text>
+          <text x="70" y="182" font-size="12" font-weight="700" fill="#55636F">Good</text>
+          <text x="168" y="182" text-anchor="end" font-size="16" font-weight="800" fill="#17212B">1</text>
+          <text x="70" y="212" font-size="12" font-weight="700" fill="#55636F">Blocked</text>
+          <text x="168" y="212" text-anchor="end" font-size="16" font-weight="800" fill="#17212B">1</text>
+        </g>
+        <rect x="260" y="200" width="200" height="10" fill="#17212B"/>
+        <use href="#filter" x="300" y="148" width="40" height="52"/>
+        <use href="#filterdent" x="370" y="148" width="40" height="52"/>
+        <circle cx="356" cy="160" r="62" fill="#FFE36E" opacity=".28" stroke="#17212B" stroke-width="9"/>
+        <path d="M400 206 L440 250" stroke="#17212B" stroke-width="16" stroke-linecap="round"/>
+        <rect x="520" y="140" width="200" height="124" fill="none" stroke="#F5B700" stroke-width="5" stroke-dasharray="12 7"/>
+        <text x="620" y="130" text-anchor="middle" font-size="14" font-weight="800" fill="#17212B">STAGING E-3</text>
+        <use href="#filter" x="578" y="176" width="54" height="72"/>
+        <g fill="#17212B"><rect x="583" y="193" width="20" height="11" rx="4"/><rect x="607" y="193" width="20" height="11" rx="4"/><rect x="601" y="196" width="8" height="3"/></g>
+        <path d="M587 196 l5 -2 M611 196 l5 -2" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+        <path d="M594 232 q5 -6 11 -1 q6 -5 11 1 q-6 4 -11 0 q-5 4 -11 0 Z" fill="#17212B"/>
+        <path class="bub" d="M640 144 H736 A10 10 0 0 1 746 154 V180 A10 10 0 0 1 736 190 H656 L636 200 L646 190 H640 A10 10 0 0 1 630 180 V154 A10 10 0 0 1 640 144 Z"/>
+        <text x="688" y="164" text-anchor="middle" font-size="12" font-weight="800" fill="#17212B">Nobody</text>
+        <text x="688" y="180" text-anchor="middle" font-size="12" font-weight="800" fill="#17212B">confirmed me!</text>
+        <text x="620" y="290" text-anchor="middle" font-size="12" font-weight="800" fill="#17212B">picked, never confirmed</text>
+      </svg>
+      <figcaption>Investigate before posting. The missing filter was hiding in staging, because nobody confirmed its task.</figcaption>
+    </figure>
+    <p>The next morning, your scanner says: <em>Count bin 2-2-202.</em></p>
+    <p>"Are we shutting down for a full inventory?" you ask.</p>
+    <p>"Almost never," Donald says. "<b class="card">Physical inventory</b> is EWM's name for the whole counting process. We do <b class="card">cycle counting</b>: a few bins every day, with the fast movers counted most often." It's the same idea as the hand counts you did several times a day at the hub.</p>
+    <p>The scanner doesn't show how many it expects. It's a <b class="card">blind count</b>, so you count what's really there instead of agreeing with a number. One good filter, plus the dented one.</p>
+    <p>The quant said two good filters. Your count lands in the <b class="card">difference analyzer</b>, where count mismatches are investigated and posted. It shows up as an <b class="card">inventory difference</b>: a count that doesn't match the quant. It's the same comparison you made at <span class="mem">Carr Industries</span> when matching counts against dispatch records.</p>
+    <figure class="ill talk">
+      <svg viewBox="0 0 640 262" role="img" aria-label="Mike asks if they should fix the count to one; Donald says not yet, investigate before posting">
+        <rect width="640" height="262" fill="#DCE6EE"/>
+        <rect x="0" y="240" width="640" height="22" fill="#B9C3CC"/>
+        <rect x="250" y="150" width="8" height="90" fill="#2E5E7E"/><rect x="382" y="150" width="8" height="90" fill="#2E5E7E"/><rect x="244" y="196" width="152" height="7" fill="#17212B"/><use href="#filter" x="286" y="160" width="28" height="36"/><use href="#filterdent" x="326" y="160" width="28" height="36"/><rect x="284" y="208" width="72" height="18" rx="3" fill="#F2F4F3"/><text x="320" y="221" text-anchor="middle" font-size="11" font-weight="800" fill="#17212B">2-2-202</text>
+        <use href="#mike" width="80" height="170" transform="translate(110 87.0) scale(0.9)"/>
+        <text class="nm" x="146" y="255" text-anchor="middle">MIKE</text>
+        <use href="#donald" width="80" height="170" transform="translate(530.0 87.0) scale(-0.9 0.9)"/>
+        <text class="nm" x="494" y="255" text-anchor="middle">DONALD</text>
+        <path class="bub" d="M34 12 H276 A14 14 0 0 1 290 26 V40 A14 14 0 0 1 276 54 H156.8 L148 91 L138.8 54 H34 A14 14 0 0 1 20 40 V26 A14 14 0 0 1 34 12 Z"/>
+        <text class="bt" x="155" y="38" text-anchor="middle">So we fix it to one?</text>
+        <path class="bub" d="M359 12 H606 A14 14 0 0 1 620 26 V60 A14 14 0 0 1 606 74 H501.2 L492 91 L483.2 74 H359 A14 14 0 0 1 345 60 V26 A14 14 0 0 1 359 12 Z"/>
+        <text class="bt" x="482" y="38" text-anchor="middle">Not yet. Investigate</text>
+        <text class="bt" x="482" y="58" text-anchor="middle">before posting.</text>
+      </svg>
+      <figcaption>Investigate before posting.</figcaption>
+    </figure>
+    <p>"So we fix it to one?" you ask.</p>
+    <p>"Not yet. <b class="card">Investigate before posting</b>. Check open tasks, staging, and nearby bins first." He orders a <b class="card">recount</b> to be sure, and a coworker counts the bin again. Still one.</p>
+    <p>You check staging lane E-3. There's the missing filter. Someone picked it but never confirmed the task. That's an <b class="card">unconfirmed task and quants</b> problem: the quant stayed at the old bin while the stock was somewhere else, so the count couldn't match.</p>
+    <p>The <b class="card">root cause</b> was a skipped confirm, not a lost part. At <span class="mem">Carr Industries</span>, investigating a missing part works the same way. In SAP, it's called working the difference analyzer.</p>
+    <p>"That's <b class="card">fixing a wrong quant</b>," Donald says. "Investigate first, then post." If the filter had truly been gone, he would be <b class="card">posting the difference</b>: changing the system's numbers for good. At the hub, that's fixing the count after investigating. Small differences, he can post himself. <b class="card">Approval for large differences</b> goes to a manager.</p>
+    <figure class="spot left">
+      <svg viewBox="0 0 400 250" role="img" aria-label="A box of spark plugs sits in an aisle with an empty dashed sticky note above it marked no record">
+        <rect width="400" height="250" fill="#DCE6EE"/>
+        <rect x="0" y="206" width="400" height="44" fill="#B9C3CC"/>
+        <rect x="0" y="206" width="400" height="5" fill="#F5B700"/>
+        <rect x="120" y="120" width="160" height="88" rx="3" fill="#C2763A"/>
+        <rect x="120" y="120" width="160" height="18" fill="#A9622D"/>
+        <rect x="146" y="152" width="108" height="26" rx="3" fill="#fff"/>
+        <text x="200" y="171" text-anchor="middle" font-size="13" font-weight="800" fill="#17212B">SPARK PLUGS</text>
+        <g fill="#17212B">
+          <rect x="62" y="150" width="10" height="34" rx="2"/><rect x="58" y="140" width="18" height="12" rx="2"/><rect x="64" y="184" width="6" height="14" fill="#9AA6B1"/>
+          <rect x="324" y="156" width="10" height="34" rx="2"/><rect x="320" y="146" width="18" height="12" rx="2"/><rect x="326" y="190" width="6" height="14" fill="#9AA6B1"/>
+        </g>
+        <rect x="128" y="26" width="144" height="70" fill="none" stroke="#17212B" stroke-width="3" stroke-dasharray="8 6" transform="rotate(-2 200 61)"/>
+        <text x="200" y="58" text-anchor="middle" font-size="26" font-weight="800" fill="#55636F">?</text>
+        <text x="200" y="84" text-anchor="middle" font-size="12" font-weight="800" fill="#D9534F" letter-spacing="1">NO RECORD</text>
+      </svg>
+      <figcaption>Surplus: stock the system didn't know about.</figcaption>
+    </figure>
+    <p>Later that day, you find a box of spark plugs in an aisle with no record at all. That's <b class="card">surplus</b>: found stock the system didn't know about. At <span class="mem">Carr Industries</span>, it's a part found with no record. And a part that arrives with no assigned shelf? In SAP, the system finds no destination bin, so the part waits in receiving until someone assigns one.</p>
+    <p>"All of this is about <b class="card">inventory accuracy</b>," Donald says. "How closely the system's records match what's physically on the shelves."</p>
+  </section>
+
+  <!-- Chapter 9 -->
+  <section class="chapter" id="ch9">
+    <header><p class="eyebrow">Chapter 9</p><h2>The control tower</h2></header>
+    <figure class="ill">
+      <svg viewBox="0 0 760 320" role="img" aria-label="The warehouse monitor on screen: the east wave at 94 percent, with one open task assigned to Prince in aisle D">
+        <rect width="760" height="320" fill="#E4E9ED"/>
+        <rect x="110" y="16" width="540" height="252" rx="14" fill="#17212B"/>
+        <rect x="130" y="36" width="500" height="212" rx="4" fill="#F2F4F3"/>
+        <rect x="130" y="36" width="500" height="30" rx="4" fill="#2E5E7E"/>
+        <text x="146" y="56" font-size="13" font-weight="800" fill="#fff">/SCWM/MON</text>
+        <text x="614" y="56" text-anchor="end" font-size="12" font-weight="700" fill="#C9D3DC">Warehouse monitor</text>
+        <rect x="130" y="66" width="110" height="182" fill="#DCE6EE"/>
+        <g font-size="11" font-weight="700" fill="#2E5E7E">
+          <text x="142" y="92">Outbound</text><text x="152" y="114">Waves</text><text x="152" y="136">WOs</text><text x="152" y="158">Tasks</text><text x="142" y="184">Stock</text><text x="142" y="208">Resources</text>
+        </g>
+        <text x="258" y="94" font-size="12" font-weight="800" fill="#17212B">East wave</text>
+        <rect x="258" y="102" width="350" height="16" rx="8" fill="#D3DAE0"/>
+        <rect x="258" y="102" width="329" height="16" rx="8" fill="#2E9E6B"/>
+        <text x="608" y="94" text-anchor="end" font-size="13" font-weight="800" fill="#17212B">94%</text>
+        <g font-size="11" font-weight="700" fill="#17212B">
+          <circle cx="266" cy="146" r="6" fill="#2E9E6B"/><text x="280" y="150">Pick · 2-4-103 · Confirmed</text>
+          <circle cx="266" cy="170" r="6" fill="#2E9E6B"/><text x="280" y="174">Pick · 2-2-202 · Confirmed</text>
+          <circle cx="266" cy="194" r="6" fill="#2E9E6B"/><text x="280" y="198">Pack · E-3 · Confirmed</text>
+        </g>
+        <rect x="254" y="208" width="360" height="26" rx="5" fill="#F7B2A8"/>
+        <circle cx="266" cy="221" r="6" fill="#D9534F"/>
+        <text x="280" y="225" font-size="11" font-weight="800" fill="#17212B">Pick · Aisle D · Open · Prince</text>
+        <rect x="350" y="268" width="60" height="26" fill="#17212B"/>
+        <rect x="300" y="292" width="160" height="12" rx="6" fill="#17212B"/>
+      </svg>
+      <figcaption>One screen shows open tasks, warehouse orders, waves, stock, and who is working on each one.</figcaption>
+    </figure>
+    <p>At 4:30, the east-route wave is stuck at 94%. Donald doesn't run onto the floor. He opens the <b class="card">warehouse monitor</b> by typing <b class="card">/SCWM/MON</b>. On one screen, he can see open tasks, warehouse orders, waves, stock, and who is working on each one.</p>
+    <figure class="ill talk">
+      <svg viewBox="0 0 640 262" role="img" aria-label="Donald radios Prince to ask what is going on in aisle D; Prince, standing by a forklift, says he is stuck behind it">
+        <rect width="640" height="262" fill="#E4E9ED"/>
+        <rect x="0" y="240" width="640" height="22" fill="#B9C3CC"/>
+        <rect x="530" y="96" width="10" height="144" fill="#17212B"/><rect x="540" y="168" width="96" height="56" rx="8" fill="#F5B700"/><rect x="550" y="180" width="76" height="30" rx="3" fill="#fff" stroke="#D9534F" stroke-width="2"/><text x="588" y="193" text-anchor="middle" font-size="10" font-weight="800" fill="#D9534F">STUDENT</text><text x="588" y="205" text-anchor="middle" font-size="10" font-weight="800" fill="#D9534F">DRIVER</text><text x="634" y="90" text-anchor="end" font-size="10" font-weight="800" fill="#17212B">turn attempt #14</text><rect x="566" y="120" width="52" height="50" rx="6" fill="none" stroke="#17212B" stroke-width="6"/><circle cx="560" cy="230" r="13" fill="#17212B"/><circle cx="618" cy="230" r="13" fill="#17212B"/><rect x="146" y="166" width="11" height="24" rx="2" fill="#17212B"/><rect x="149" y="152" width="3" height="16" fill="#17212B"/>
+        <use href="#donald" width="80" height="170" transform="translate(90 87.0) scale(0.9)"/>
+        <text class="nm" x="126" y="255" text-anchor="middle">DONALD</text>
+        <use href="#prince" width="80" height="170" transform="translate(472.0 87.0) scale(-0.9 0.9)"/>
+        <text class="nm" x="436" y="255" text-anchor="middle">PRINCE</text>
+        <path class="bub" d="M30 12 H282 A14 14 0 0 1 296 26 V60 A14 14 0 0 1 282 74 H136.8 L128 91 L118.80000000000001 74 H30 A14 14 0 0 1 16 60 V26 A14 14 0 0 1 30 12 Z"/>
+        <text class="bt" x="156" y="38" text-anchor="middle">Prince, what's going</text>
+        <text class="bt" x="156" y="58" text-anchor="middle">on in aisle D?</text>
+        <path class="bub" d="M344 12 H566 A14 14 0 0 1 580 26 V60 A14 14 0 0 1 566 74 H443.2 L434 91 L425.2 74 H344 A14 14 0 0 1 330 60 V26 A14 14 0 0 1 344 12 Z"/>
+        <text class="bt" x="455" y="38" text-anchor="middle">Stuck behind</text>
+        <text class="bt" x="455" y="58" text-anchor="middle">a forklift!</text>
+      </svg>
+      <figcaption>Donald radios Prince in aisle D.</figcaption>
+    </figure>
+    <p>One task is still open, assigned to Prince in aisle D. Donald radios him. Prince is stuck behind a forklift. Two minutes later, the task turns green.</p>
+    <p>At the hub, you'd have to go hunting to find out who had a stuck pick. Here, it takes one screen. It reminds you of watching the ServiceNow queue at <span class="mem">Corey Financial Company</span>: spot what's overdue, see who owns it, and chase down why.</p>
+    <p>On the way upstairs, Donald explains the bigger picture.</p>
+    <figure class="spot">
+      <svg viewBox="0 0 400 250" role="img" aria-label="A two-floor building. Upstairs, S/4HANA shows 120 alternators company-wide. Downstairs, EWM shows which bins hold them">
+        <rect width="400" height="250" fill="#E4E9ED"/>
+        <polygon points="20,30 380,30 360,12 40,12" fill="#17212B"/>
+        <rect x="20" y="30" width="360" height="206" fill="#fff" stroke="#17212B" stroke-width="3"/>
+        <rect x="20" y="130" width="360" height="6" fill="#17212B"/>
+        <text x="34" y="54" font-size="12" font-weight="800" fill="#2E5E7E" letter-spacing="1">UPSTAIRS · S/4HANA</text>
+        <rect x="140" y="64" width="150" height="56" rx="6" fill="#17212B"/>
+        <rect x="148" y="70" width="134" height="40" rx="3" fill="#F2F4F3"/>
+        <text x="215" y="88" text-anchor="middle" font-size="11" font-weight="700" fill="#55636F">Alternators</text>
+        <text x="215" y="106" text-anchor="middle" font-size="17" font-weight="800" fill="#17212B">120</text>
+        <text x="34" y="156" font-size="12" font-weight="800" fill="#2E5E7E" letter-spacing="1">DOWNSTAIRS · EWM</text>
+        <g fill="#2E5E7E"><rect x="40" y="168" width="100" height="56" rx="3"/><rect x="150" y="168" width="100" height="56" rx="3"/><rect x="260" y="168" width="100" height="56" rx="3"/></g>
+        <g font-size="12" font-weight="800" fill="#fff" text-anchor="middle">
+          <text x="90" y="190">2-4-101</text><text x="200" y="190">2-4-103</text><text x="310" y="190">8-1-401</text>
+        </g>
+        <g font-size="18" font-weight="800" fill="#FFE36E" text-anchor="middle">
+          <text x="90" y="214">1</text><text x="200" y="214">3</text><text x="310" y="214">116</text>
+        </g>
+        <path d="M330 126 L330 110 L346 110 L346 94 L362 94 L362 78" fill="none" stroke="#9AA6B1" stroke-width="4"/>
+      </svg>
+      <figcaption>Upstairs knows how many. Downstairs knows exactly where.</figcaption>
+    </figure>
+    <p>"<b class="card">SAP EWM</b>, Extended Warehouse Management, runs this floor. It replaced SAP's older warehouse system, <b class="card">Classic WM</b>. And <b class="card">S/4HANA</b> is the company-wide SAP system that purchasing, sales, and accounting use."</p>
+    <p>"So what's the difference?"</p>
+    <p>"<b class="card">Upstairs vs downstairs</b>. Upstairs, S/4HANA knows how many alternators the company has. Down here, EWM knows exactly which bins they're in."</p>
+    <p>At T-Brothers, EWM runs inside S/4HANA as one system with one database. That's <b class="card">embedded EWM</b>. Some companies run <b class="card">decentralized EWM</b> instead: a separate system connected to S/4HANA. <b class="card">Why decentralized</b>? So a busy warehouse keeps running when the main system is down for maintenance.</p>
+    <p>Upstairs, you see two kinds of screens. One looks like a phone's home screen, full of colorful tiles. That's <b class="card">Fiori</b>, SAP's newer app-style screens that run in a web browser. The page of tiles is the <b class="card">Fiori launchpad</b>, and each tile opens one app. The other screen is plain and gray, with a small box at the top. That's <b class="card">SAP GUI</b>, the older style, where you type a <b class="card">transaction code</b> like /SCWM/MON to open a screen.</p>
+  </section>
+
+  <!-- Chapter 10 -->
+  <section class="chapter" id="ch10">
+    <header><p class="eyebrow">Chapter 10</p><h2>Upstairs with Robert</h2></header>
+    <figure class="ill">
+      <svg viewBox="0 0 760 320" role="img" aria-label="Whiteboard drawing of the transport path: development to quality to production, with a transport request package riding the arrows">
+        <rect width="760" height="320" fill="#DCE6EE"/>
+        <rect x="30" y="16" width="700" height="262" rx="8" fill="#9AA6B1"/>
+        <rect x="42" y="28" width="676" height="238" rx="4" fill="#fff"/>
+        <g fill="none" stroke="#2E5E7E" stroke-width="5" stroke-linejoin="round">
+          <rect x="80" y="96" width="156" height="96" rx="10"/>
+          <rect x="302" y="96" width="156" height="96" rx="10"/>
+          <rect x="524" y="96" width="156" height="96" rx="10"/>
+        </g>
+        <g font-weight="800" text-anchor="middle" fill="#2E5E7E">
+          <text x="158" y="146" font-size="26">DEV</text><text x="380" y="146" font-size="26">QA</text><text x="602" y="146" font-size="26">PRD</text>
+        </g>
+        <g font-size="12" font-weight="700" text-anchor="middle" fill="#55636F">
+          <text x="158" y="172">Development</text><text x="380" y="172">Quality</text><text x="602" y="172">Production</text>
+        </g>
+        <defs><marker id="arr10" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L10 5 L0 10 Z" fill="#D9534F"/></marker></defs>
+        <g stroke="#D9534F" stroke-width="5" fill="none" marker-end="url(#arr10)" stroke-linecap="round">
+          <path d="M240 144 H294"/><path d="M462 144 H516"/>
+        </g>
+        <use href="#box" x="250" y="88" width="36" height="31"/>
+        <text x="268" y="80" text-anchor="middle" font-size="11" font-weight="800" fill="#17212B">TRANSPORT</text>
+        <text x="380" y="236" text-anchor="middle" font-size="16" font-weight="800" fill="#17212B">Never on the live system.</text>
+        <rect x="200" y="278" width="360" height="14" rx="3" fill="#7D8B97"/>
+        <rect x="250" y="270" width="54" height="10" rx="5" fill="#2E5E7E"/>
+        <rect x="320" y="270" width="54" height="10" rx="5" fill="#D9534F"/>
+        <rect x="390" y="270" width="54" height="10" rx="5" fill="#17212B"/>
+      </svg>
+      <figcaption>A transport request carries a change from development, to quality, to production.</figcaption>
+    </figure>
+    <figure class="ill talk">
+      <svg viewBox="0 0 640 262" role="img" aria-label="Donald introduces Mike to Robert, the systems analyst, who says pull up a chair">
+        <rect width="640" height="262" fill="#DCE6EE"/>
+        <rect x="0" y="240" width="640" height="22" fill="#B9C3CC"/>
+        <rect x="380" y="186" width="250" height="10" fill="#C2763A"/><rect x="392" y="196" width="10" height="44" fill="#A9622D"/><rect x="608" y="196" width="10" height="44" fill="#A9622D"/><rect x="540" y="130" width="84" height="54" rx="5" fill="#17212B"/><rect x="546" y="136" width="72" height="40" fill="#9AA6B1"/><rect x="574" y="180" width="16" height="8" fill="#17212B"/>
+        <use href="#mike" width="80" height="170" transform="translate(30 87.0) scale(0.9)"/>
+        <text class="nm" x="66" y="255" text-anchor="middle">MIKE</text>
+        <use href="#donald" width="80" height="170" transform="translate(170 87.0) scale(0.9)"/>
+        <text class="nm" x="206" y="255" text-anchor="middle">DONALD</text>
+        <use href="#robert" width="80" height="170" transform="translate(492.0 87.0) scale(-0.9 0.9)"/>
+        <text class="nm" x="456" y="255" text-anchor="middle">ROBERT</text>
+        <path class="bub" d="M110 12 H332 A14 14 0 0 1 346 26 V60 A14 14 0 0 1 332 74 H216.8 L208 91 L198.8 74 H110 A14 14 0 0 1 96 60 V26 A14 14 0 0 1 110 12 Z"/>
+        <text class="bt" x="221" y="38" text-anchor="middle">Mike, meet Robert,</text>
+        <text class="bt" x="221" y="58" text-anchor="middle">our systems analyst.</text>
+        <path class="bub" d="M386 26 H588 A14 14 0 0 1 602 40 V54 A14 14 0 0 1 588 68 H463.2 L454 91 L445.2 68 H386 A14 14 0 0 1 372 54 V40 A14 14 0 0 1 386 26 Z"/>
+        <text class="bt" x="487" y="52" text-anchor="middle">Pull up a chair.</text>
+      </svg>
+      <figcaption>Donald introduces Mike to Robert.</figcaption>
+    </figure>
+    <p>Donald introduces you to Robert, the warehouse systems analyst. He's the one who configures EWM.</p>
+    <p>"Donald says you want to do what I do someday," he says. "Pull up a chair."</p>
+    <p>He types <b class="card">SPRO</b> into the box on the SAP GUI screen. A long tree of folders opens. "This is the <b class="card">IMG</b>, the Implementation Guide. It's the settings tree where almost every SAP setting lives."</p>
+    <p>"So this is <b class="card">configuration</b>?"</p>
+    <p>"Right. The structure and rules of the system, the kind of thing that changes rarely. SAP's own word for it is <b class="card">customizing</b>." He clicks through folders: goods receipt, goods issue, physical inventory. "And <b class="card">configuration is not coding</b>. It's filling in settings, tables, checkboxes, and dropdowns. When something needs real code, a developer writes it in <b class="card">ABAP</b>, SAP's programming language. That's a different job."</p>
+    <p>Today he wants oil filters to go to the front of aisle 2. You ask if he's changing it right now.</p>
+    <figure class="ill talk">
+      <svg viewBox="0 0 640 262" role="img" aria-label="Mike asks Robert if he is changing the setting right now; Robert laughs, never on the live system, next to a production computer behind a velvet rope with a do not touch sign">
+        <rect width="640" height="262" fill="#E4E9ED"/>
+        <rect x="0" y="240" width="640" height="22" fill="#B9C3CC"/>
+        <rect x="262" y="118" width="116" height="74" rx="6" fill="#17212B"/><rect x="270" y="126" width="100" height="56" fill="#F2F4F3"/><text x="320" y="160" text-anchor="middle" font-size="20" font-weight="800" fill="#17212B">PRD</text><circle cx="355" cy="138" r="5" fill="#D9534F"/><text x="340" y="142" text-anchor="end" font-size="9" font-weight="800" fill="#D9534F">LIVE</text><rect x="312" y="192" width="16" height="16" fill="#17212B"/><rect x="290" y="206" width="60" height="6" rx="3" fill="#17212B"/><g fill="#C9A227"><rect x="234" y="160" width="7" height="80"/><rect x="399" y="160" width="7" height="80"/><circle cx="237.5" cy="158" r="7"/><circle cx="402.5" cy="158" r="7"/><rect x="226" y="236" width="23" height="6" rx="3"/><rect x="391" y="236" width="23" height="6" rx="3"/></g><path d="M240 166 Q320 206 400 166" fill="none" stroke="#B32D24" stroke-width="7" stroke-linecap="round"/><rect x="282" y="208" width="76" height="22" rx="3" fill="#fff" stroke="#17212B" stroke-width="1.5"/><text x="320" y="223" text-anchor="middle" font-size="10" font-weight="800" fill="#B32D24">DO NOT TOUCH</text>
+        <use href="#mike" width="80" height="170" transform="translate(100 87.0) scale(0.9)"/>
+        <text class="nm" x="136" y="255" text-anchor="middle">MIKE</text>
+        <use href="#robert" width="80" height="170" transform="translate(530.0 87.0) scale(-0.9 0.9)"/>
+        <text class="nm" x="494" y="255" text-anchor="middle">ROBERT</text>
+        <path class="bub" d="M28 12 H250 A14 14 0 0 1 264 26 V60 A14 14 0 0 1 250 74 H146.8 L138 91 L128.8 74 H28 A14 14 0 0 1 14 60 V26 A14 14 0 0 1 28 12 Z"/>
+        <text class="bt" x="139" y="38" text-anchor="middle">You're changing</text>
+        <text class="bt" x="139" y="58" text-anchor="middle">it right now?</text>
+        <path class="bub" d="M374 12 H606 A14 14 0 0 1 620 26 V60 A14 14 0 0 1 606 74 H501.2 L492 91 L483.2 74 H374 A14 14 0 0 1 360 60 V26 A14 14 0 0 1 374 12 Z"/>
+        <text class="bt" x="490" y="38" text-anchor="middle">Never on the</text>
+        <text class="bt" x="490" y="58" text-anchor="middle">live system!</text>
+      </svg>
+      <figcaption>Production gets the velvet rope. Changes start in development.</figcaption>
+    </figure>
+    <p>He laughs. "Never on the live system." He draws three boxes on the whiteboard. "We have three copies of SAP. I make the change in the <b class="card">development system</b>, the sandbox. Then it's tested in the <b class="card">quality system</b>. Only after that does it reach the <b class="card">production system</b>, the live copy the floor uses."</p>
+    <p>His change travels in a <b class="card">transport request</b>, a package that carries the change from one system to the next. He draws arrows between the boxes: the <b class="card">transport path</b> runs from development, to quality, to production.</p>
+    <figure class="ill talk">
+      <svg viewBox="0 0 640 262" role="img" aria-label="In front of the DEV, QA, PRD whiteboard, Mike says that's change control and Robert says same discipline, SAP style">
+        <rect width="640" height="262" fill="#E4E9ED"/>
+        <rect x="0" y="240" width="640" height="22" fill="#B9C3CC"/>
+        <rect x="222" y="108" width="196" height="108" rx="6" fill="#9AA6B1"/><rect x="230" y="116" width="180" height="92" rx="3" fill="#fff"/><g fill="none" stroke="#2E5E7E" stroke-width="3"><rect x="240" y="146" width="44" height="30" rx="5"/><rect x="298" y="146" width="44" height="30" rx="5"/><rect x="356" y="146" width="44" height="30" rx="5"/></g><g font-size="11" font-weight="800" fill="#2E5E7E" text-anchor="middle"><text x="262" y="165">DEV</text><text x="320" y="165">QA</text><text x="378" y="165">PRD</text></g><path d="M286 161 H296 M344 161 H354" stroke="#D9534F" stroke-width="3"/><rect x="314" y="216" width="12" height="24" fill="#7D8B97"/>
+        <use href="#mike" width="80" height="170" transform="translate(110 87.0) scale(0.9)"/>
+        <text class="nm" x="146" y="255" text-anchor="middle">MIKE</text>
+        <use href="#robert" width="80" height="170" transform="translate(530.0 87.0) scale(-0.9 0.9)"/>
+        <text class="nm" x="494" y="255" text-anchor="middle">ROBERT</text>
+        <path class="bub" d="M34 12 H276 A14 14 0 0 1 290 26 V40 A14 14 0 0 1 276 54 H156.8 L148 91 L138.8 54 H34 A14 14 0 0 1 20 40 V26 A14 14 0 0 1 34 12 Z"/>
+        <text class="bt" x="155" y="38" text-anchor="middle">That's change control.</text>
+        <path class="bub" d="M359 12 H606 A14 14 0 0 1 620 26 V60 A14 14 0 0 1 606 74 H501.2 L492 91 L483.2 74 H359 A14 14 0 0 1 345 60 V26 A14 14 0 0 1 359 12 Z"/>
+        <text class="bt" x="482" y="38" text-anchor="middle">Same discipline,</text>
+        <text class="bt" x="482" y="58" text-anchor="middle">SAP style.</text>
+      </svg>
+      <figcaption>Change control, SAP style.</figcaption>
+    </figure>
+    <p>"That's change control," you say. "At <span class="mem">Corey Financial Company</span>, I took change records through the approval board. Scope, testing, rollback."</p>
+    <p>"Same discipline, SAP style." Then he turns serious. "Here's <b class="card">why caution with configuration</b> matters. One setting affects every task at once. Goods movements move money in accounting. And rolling back a setting doesn't move the boxes back."</p>
+    <figure class="spot">
+      <svg viewBox="0 0 400 250" role="img" aria-label="A board game: the pieces are master data, the rule card is configuration, the dice moves are transactional data">
+        <rect width="400" height="250" fill="#DCE6EE"/>
+        <rect x="20" y="24" width="200" height="170" rx="8" fill="#fff" stroke="#17212B" stroke-width="3"/>
+        <g fill="#E4E9ED">
+          <rect x="34" y="38" width="40" height="40"/><rect x="114" y="38" width="40" height="40"/><rect x="74" y="78" width="40" height="40"/><rect x="154" y="78" width="40" height="40"/><rect x="34" y="118" width="40" height="40"/><rect x="114" y="118" width="40" height="40"/>
+        </g>
+        <g><path d="M54 72 a10 10 0 1 1 0.1 0 Z" fill="#2E5E7E"/><rect x="44" y="86" width="20" height="24" rx="6" fill="#2E5E7E"/></g>
+        <g><circle cx="134" cy="132" r="10" fill="#D9534F"/><rect x="124" y="140" width="20" height="24" rx="6" fill="#D9534F"/></g>
+        <use href="#filter" x="160" y="84" width="24" height="32"/>
+        <rect x="244" y="24" width="136" height="100" rx="8" fill="#FFE36E" stroke="#17212B" stroke-width="2"/>
+        <text x="312" y="50" text-anchor="middle" font-size="12" font-weight="800" fill="#17212B" letter-spacing="1">RULES</text>
+        <g stroke="#17212B" stroke-width="3" stroke-linecap="round" opacity=".5"><path d="M260 70 H364 M260 86 H350 M260 102 H358"/></g>
+        <g transform="rotate(-12 290 168)">
+          <rect x="262" y="140" width="56" height="56" rx="10" fill="#fff" stroke="#17212B" stroke-width="3"/>
+          <circle cx="278" cy="156" r="5" fill="#17212B"/><circle cx="290" cy="168" r="5" fill="#17212B"/><circle cx="302" cy="180" r="5" fill="#17212B"/>
+        </g>
+        <path d="M334 170 l14 -8 l-2 16 Z" fill="#2E9E6B"/>
+        <g font-size="13" font-weight="800" text-anchor="middle" fill="#17212B">
+          <text x="120" y="218">MASTER DATA</text><text x="120" y="236" font-size="11" fill="#55636F">things that exist</text>
+          <text x="312" y="140" font-size="11" fill="#55636F">configuration</text>
+          <text x="312" y="218">TRANSACTIONAL</text><text x="312" y="236" font-size="11" fill="#55636F">the moves</text>
+        </g>
+      </svg>
+      <figcaption>Rule, thing, or event?</figcaption>
+    </figure>
+    <p>He draws one more picture: a board game. "<b class="card">Master data</b> is the things that exist: bins, products, packaging materials. Configuration is the rules. <b class="card">Transactional data</b> is the moves people make every day: deliveries, warehouse tasks, goods receipts."</p>
+    <p>"So when something goes wrong, I ask <b class="card">rule or thing or event</b>?"</p>
+    <p>"Exactly. That battery entered as 4 pounds was a thing, so it was master data, not configuration."</p>
+    <p>He adds one more difference. <b class="card">Who changes master data</b>? Key users and analysts, usually directly in production. <b class="card">Who changes configuration</b>? Configurers like Robert, in development, moved to production by transports.</p>
+  </section>
+
+  <!-- Chapter 11 -->
+  <section class="chapter" id="ch11">
+    <header><p class="eyebrow">Chapter 11</p><h2>The test</h2></header>
+    <figure class="ill">
+      <svg viewBox="0 0 760 320" role="img" aria-label="A laptop showing a four-step test script with every step marked pass, and a stamp reading regression pass">
+        <rect width="760" height="320" fill="#E4E9ED"/>
+        <rect x="160" y="22" width="440" height="244" rx="12" fill="#17212B"/>
+        <rect x="178" y="40" width="404" height="208" rx="4" fill="#fff"/>
+        <rect x="178" y="40" width="404" height="32" rx="4" fill="#2E5E7E"/>
+        <text x="194" y="61" font-size="12" font-weight="800" fill="#fff" letter-spacing="1">TEST SCRIPT · OIL FILTER PUTAWAY</text>
+        <g font-size="12" font-weight="700" fill="#17212B">
+          <text x="194" y="100">1  Create inbound delivery</text>
+          <text x="194" y="140">2  Post goods receipt</text>
+          <text x="194" y="180">3  Create putaway task</text>
+          <text x="194" y="220">4  Confirm on RF scanner</text>
+        </g>
+        <g stroke="#D3DAE0" stroke-width="1"><path d="M190 116 H570 M190 156 H570 M190 196 H570"/></g>
+        <g fill="#2E9E6B">
+          <rect x="500" y="86" width="64" height="22" rx="11"/><rect x="500" y="126" width="64" height="22" rx="11"/>
+          <rect x="500" y="166" width="64" height="22" rx="11"/><rect x="500" y="206" width="64" height="22" rx="11"/>
+        </g>
+        <g font-size="11" font-weight="800" fill="#fff" text-anchor="middle">
+          <text x="532" y="101">PASS</text><text x="532" y="141">PASS</text><text x="532" y="181">PASS</text><text x="532" y="221">PASS</text>
+        </g>
+        <path d="M120 266 H640 L668 292 H92 Z" fill="#7D8B97"/>
+        <rect x="340" y="268" width="80" height="8" rx="4" fill="#5F6D79"/>
+        <g transform="rotate(-12 660 90)">
+          <rect x="604" y="58" width="128" height="62" rx="8" fill="none" stroke="#D9534F" stroke-width="5"/>
+          <text x="668" y="84" text-anchor="middle" font-size="12" font-weight="800" fill="#D9534F" letter-spacing="1">REGRESSION</text>
+          <text x="668" y="108" text-anchor="middle" font-size="18" font-weight="800" fill="#D9534F">PASS</text>
+        </g>
+      </svg>
+      <figcaption>Test what you changed, then test what you didn't.</figcaption>
+    </figure>
+    <figure class="ill talk">
+      <svg viewBox="0 0 640 262" role="img" aria-label="Robert slides a laptop to Mike and says you did QA, right, then you test it; Mike reports step 3 passes">
+        <rect width="640" height="262" fill="#DCE6EE"/>
+        <rect x="0" y="240" width="640" height="22" fill="#B9C3CC"/>
+        <rect x="230" y="186" width="180" height="10" fill="#C2763A"/><rect x="240" y="196" width="10" height="44" fill="#A9622D"/><rect x="390" y="196" width="10" height="44" fill="#A9622D"/><rect x="286" y="146" width="70" height="40" rx="4" fill="#17212B"/><rect x="291" y="151" width="60" height="31" fill="#F2F4F3"/><path d="M297 160 l4 4 l7 -8 M297 172 l4 4 l7 -8" fill="none" stroke="#2E9E6B" stroke-width="2.5"/><path d="M276 186 H366 L372 180 H270 Z" fill="#7D8B97"/>
+        <use href="#mike" width="80" height="170" transform="translate(110 87.0) scale(0.9)"/>
+        <text class="nm" x="146" y="255" text-anchor="middle">MIKE</text>
+        <use href="#robert" width="80" height="170" transform="translate(530.0 87.0) scale(-0.9 0.9)"/>
+        <text class="nm" x="494" y="255" text-anchor="middle">ROBERT</text>
+        <path class="bub" d="M34 12 H276 A14 14 0 0 1 290 26 V40 A14 14 0 0 1 276 54 H156.8 L148 91 L138.8 54 H34 A14 14 0 0 1 20 40 V26 A14 14 0 0 1 34 12 Z"/>
+        <text class="bt" x="155" y="38" text-anchor="middle">Step 3: pass.</text>
+        <path class="bub" d="M359 12 H606 A14 14 0 0 1 620 26 V60 A14 14 0 0 1 606 74 H501.2 L492 91 L483.2 74 H359 A14 14 0 0 1 345 60 V26 A14 14 0 0 1 359 12 Z"/>
+        <text class="bt" x="482" y="38" text-anchor="middle">You did QA, right?</text>
+        <text class="bt" x="482" y="58" text-anchor="middle">Then you test it.</text>
+      </svg>
+      <figcaption>Robert hands over the test.</figcaption>
+    </figure>
+    <p>Robert's oil filter change has reached the quality system. He slides a laptop across the desk. "You did QA at <span class="mem">Corey Financial Company</span>, right? Then you test it."</p>
+    <p>He hands you a <b class="card">test script</b>: a step-by-step list of actions, each with an <b class="card">expected result</b> so you can mark it pass or fail.</p>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>Step</th><th>Action</th><th>Expected result</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td>Create an inbound delivery for 12 oil filters</td><td>Delivery created</td></tr>
+          <tr><td>2</td><td>Post the goods receipt</td><td>Stock shows in the dock area</td></tr>
+          <tr><td>3</td><td>Create the putaway task</td><td>Destination is the front of aisle 2</td></tr>
+          <tr><td>4</td><td>Confirm the task on the RF scanner</td><td>Quant appears in the new bin</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>Step 3 sends the filters to 2-1-101, the front of aisle 2. Pass.</p>
+    <p>"Now the part people skip," Robert says. "Test what you didn't change."</p>
+    <p>That's <b class="card">regression testing</b>: proving the change didn't break anything else. You run a brake pad putaway, and the pads still go to their usual spot. You run an oil filter pick from the new bin, and it works. Both pass.</p>
+    <figure class="spot left">
+      <svg viewBox="0 0 400 250" role="img" aria-label="A stack of three screenshots as test evidence next to a sign-off sheet with a signature and a green check">
+        <rect width="400" height="250" fill="#E4E9ED"/>
+        <g transform="rotate(-6 110 130)">
+          <rect x="30" y="70" width="160" height="110" rx="6" fill="#fff" stroke="#17212B" stroke-width="2"/>
+          <rect x="30" y="70" width="160" height="16" rx="6" fill="#9AA6B1"/>
+        </g>
+        <g transform="rotate(-2 120 125)">
+          <rect x="40" y="62" width="160" height="110" rx="6" fill="#fff" stroke="#17212B" stroke-width="2"/>
+          <rect x="40" y="62" width="160" height="16" rx="6" fill="#9AA6B1"/>
+        </g>
+        <rect x="50" y="56" width="160" height="110" rx="6" fill="#fff" stroke="#17212B" stroke-width="2"/>
+        <rect x="50" y="56" width="160" height="18" rx="6" fill="#2E5E7E"/>
+        <circle cx="62" cy="65" r="3" fill="#fff"/><circle cx="72" cy="65" r="3" fill="#fff"/><circle cx="82" cy="65" r="3" fill="#fff"/>
+        <g stroke="#D3DAE0" stroke-width="7" stroke-linecap="round"><path d="M66 94 H170 M66 112 H150 M66 130 H164"/></g>
+        <rect x="150" y="140" width="50" height="18" rx="9" fill="#2E9E6B"/>
+        <text x="175" y="153" text-anchor="middle" font-size="10" font-weight="800" fill="#fff">PASS</text>
+        <text x="130" y="210" text-anchor="middle" font-size="13" font-weight="800" fill="#17212B">test evidence</text>
+        <rect x="246" y="40" width="128" height="160" rx="6" fill="#fff" stroke="#17212B" stroke-width="2"/>
+        <text x="310" y="68" text-anchor="middle" font-size="12" font-weight="800" fill="#2E5E7E" letter-spacing="1">SIGN-OFF</text>
+        <g stroke="#D3DAE0" stroke-width="5" stroke-linecap="round"><path d="M262 90 H358 M262 106 H340"/></g>
+        <path d="M262 150 c10 -20 18 10 28 -6 s14 -14 20 4 s12 -8 22 -2" fill="none" stroke="#17212B" stroke-width="3" stroke-linecap="round"/>
+        <path d="M262 164 H358" stroke="#17212B" stroke-width="1.5"/>
+        <circle cx="352" cy="190" r="22" fill="#2E9E6B"/>
+        <path d="M341 190 L349 198 L363 182" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <figcaption>Screenshots of every step, then sign-off.</figcaption>
+    </figure>
+    <p>You save screenshots of every step as <b class="card">test evidence</b>. Robert's manager gives him <b class="card">sign-off</b>, the approval that testing is complete, and the transport moves to production.</p>
+    <p>The next morning, the two of you watch the first real oil filter delivery go through. "That's the <b class="card">post-go-live check</b>," Robert says. "Watching the first real transactions after a change goes live."</p>
+    <p>On big projects, he tells you, business users do this kind of testing too, right before go-live. It's called <b class="card">UAT</b>, user acceptance testing. You realize your years of QA testing at <span class="mem">Corey Financial Company</span> map straight onto it: test scripts, regression testing, and UAT.</p>
+  </section>
+
+  <!-- Chapter 12 -->
+  <section class="chapter" id="ch12">
+    <header><p class="eyebrow">Chapter 12</p><h2>The key user panel</h2></header>
+    <figure class="ill">
+      <svg viewBox="0 0 760 320" role="img" aria-label="The key user panel: a two-person selection panel behind a table, facing you; your speech bubble reads Situation, Task, Action, Result">
+        <rect width="760" height="320" fill="#DCE6EE"/>
+        <rect x="0" y="270" width="760" height="50" fill="#B9C3CC"/>
+        <use href="#manager" x="140" y="108" width="76" height="162"/>
+        <use href="#donald" x="240" y="118" width="72" height="153"/>
+        <rect x="110" y="214" width="250" height="16" rx="3" fill="#C2763A"/>
+        <rect x="124" y="230" width="12" height="44" fill="#A9622D"/><rect x="334" y="230" width="12" height="44" fill="#A9622D"/>
+        <rect x="180" y="200" width="44" height="14" rx="2" fill="#fff"/>
+        <use href="#mike" width="80" height="170" transform="translate(600 102) scale(-1 1)"/>
+        <rect x="610" y="196" width="60" height="78" rx="6" fill="#7D8B97"/>
+        <rect x="604" y="186" width="10" height="88" rx="4" fill="#5F6D79"/>
+        <g>
+          <rect x="400" y="20" width="330" height="70" rx="14" fill="#fff" stroke="#17212B" stroke-width="3"/>
+          <polygon points="540,88 556,112 570,88" fill="#fff" stroke="#17212B" stroke-width="3" stroke-linejoin="round"/>
+          <rect x="542" y="84" width="26" height="8" fill="#fff"/>
+          <g font-size="15" font-weight="800" text-anchor="middle">
+            <text x="452" y="62" fill="#2E5E7E">Situation</text>
+            <text x="532" y="62" fill="#17212B">Task</text>
+            <text x="606" y="62" fill="#2E5E7E">Action</text>
+            <text x="686" y="62" fill="#2E9E6B">Result</text>
+          </g>
+        </g>
+      </svg>
+      <figcaption>A behavioral question gets a STAR answer.</figcaption>
+    </figure>
+    <p>Three months later, your cross-training wraps up. Back at <span class="mem">Carr Industries</span>, the hub is getting ready for its own EWM go-live, and it needs a site key user. Your operations manager runs the selection panel, and Donald joins to advise.</p>
+    <p>The manager starts. "What do you know about SAP EWM?"</p>
+    <p>You use the shape you practiced for <b class="card">panel: what do you know about EWM</b>. What it is in one sentence, two or three key ideas, then how it connects to you. "It's SAP's warehouse management system, running inside S/4HANA. S/4HANA knows how much stock the company has, and EWM knows exactly where it is. Everything moves through warehouse tasks confirmed by RF scanning, which keeps the quants matched to the shelves. That's the problem I've worked on by hand at <span class="mem">Carr Industries</span>, and I watched EWM handle it every day at T-Brothers."</p>
+    <p>"How do you keep inventory accurate?"</p>
+    <p>For <b class="card">panel: how do you keep inventory accurate</b>, you answer in three parts. "Prevent errors, catch them early, and fix the cause, not just the number."</p>
+    <p>Then Donald asks, "Tell me about a time you solved a discrepancy."</p>
+    <p>It's a <b class="card">behavioral question</b>, asking for a real past example. So you use the <b class="card">STAR method</b>: Situation, Task, Action, Result. Your <b class="card">panel: discrepancy story</b> is the 13-store hub at <span class="mem">Carr Industries</span>. You built a manual reconciliation process, gave one specific example of a part that was dispatched but never scanned, and finished with the result: missing-part calls went from frequent to rare.</p>
+    <p>The manager leans back. "Three months ago, you'd never used EWM. Why should we pick you over someone from the project team who had?"</p>
+    <figure class="spot">
+      <svg viewBox="0 0 400 250" role="img" aria-label="Bridging: a short plank bridge crosses the gap labeled no EWM yet, leading to a cliff labeled what I bring: floor experience, IT and QA, change control">
+        <rect width="400" height="250" fill="#DCE6EE"/>
+        <polygon points="0,130 130,130 150,250 0,250" fill="#2E5E7E"/>
+        <polygon points="270,130 400,130 400,250 250,250" fill="#2E5E7E"/>
+        <rect x="0" y="122" width="132" height="10" fill="#2E9E6B"/>
+        <rect x="268" y="122" width="132" height="10" fill="#2E9E6B"/>
+        <g fill="#C2763A">
+          <rect x="128" y="124" width="18" height="8"/><rect x="150" y="126" width="18" height="8"/><rect x="172" y="128" width="18" height="8"/>
+          <rect x="194" y="128" width="18" height="8"/><rect x="216" y="126" width="18" height="8"/><rect x="238" y="124" width="18" height="8"/><rect x="258" y="122" width="14" height="8"/>
+        </g>
+        <path d="M128 112 Q200 132 272 112" fill="none" stroke="#17212B" stroke-width="2"/>
+        <text x="200" y="176" text-anchor="middle" font-size="12" font-weight="800" fill="#55636F">gap: no EWM yet</text>
+        <use href="#mike" x="50" y="58" width="30" height="64"/>
+        <g font-size="12" font-weight="800" fill="#fff">
+          <text x="290" y="164">floor experience</text><text x="290" y="184">19 yrs IT + QA</text><text x="290" y="204">change control</text>
+        </g>
+        <text x="335" y="104" text-anchor="middle" font-size="13" font-weight="800" fill="#17212B">what I bring</text>
+        <text x="200" y="40" text-anchor="middle" font-size="14" font-weight="800" fill="#17212B">One sentence on the gap, then cross.</text>
+      </svg>
+      <figcaption>Bridging: name the gap, then move to what you bring.</figcaption>
+    </figure>
+    <p>This is <b class="card">panel: why pick you without EWM</b>, and you've practiced <b class="card">bridging</b>: acknowledging a gap in one sentence, then moving to what you do bring. "That's fair. I started without EWM experience. But I bring floor experience, nineteen years of IT and QA, and change control expertise from <span class="mem">Corey Financial Company</span>. I'm already learning, and I've worked in EWM every day for three months at T-Brothers. Long-term, I'd like to grow into the systems side."</p>
+    <p>"Do you have questions for us?"</p>
+    <p>You remember the <b class="card">order of your questions</b>: role questions first, growth path last.</p>
+    <p>You start with <b class="card">panel: questions about their setup</b>. You already know the rollout will use embedded EWM on both RF and Fiori, so you ask when the hub goes live and what changes come first. Next come <b class="card">panel: questions about accuracy</b>: how the project will measure inventory accuracy, and how cycle counting will decide what gets counted. You save <b class="card">panel: questions about growth</b> for last: does the key user work with the EWM support team, how do super-users get picked, and has anyone moved from operations into systems?</p>
+    <figure class="ill talk">
+      <svg viewBox="0 0 640 262" role="img" aria-label="Mike’s manager tells him the key user role is his, with Donald smiling beside her; Mike says thank you">
+        <rect width="640" height="262" fill="#DCE6EE"/>
+        <rect x="0" y="240" width="640" height="22" fill="#B9C3CC"/>
+        <rect x="360" y="130" width="40" height="110" fill="#2E9E6B" opacity=".0"/><path d="M372 240 v-40 M372 214 q-14 -10 -20 -24 M372 206 q14 -8 22 -22" stroke="#2E9E6B" stroke-width="5" fill="none" stroke-linecap="round"/><rect x="360" y="226" width="24" height="16" rx="3" fill="#C2763A"/>
+        <use href="#manager" width="80" height="170" transform="translate(40 87.0) scale(0.9)"/>
+        <text class="nm" x="76" y="255" text-anchor="middle">MANAGER</text>
+        <use href="#donald" width="80" height="170" transform="translate(170 87.0) scale(0.9)"/>
+        <text class="nm" x="206" y="255" text-anchor="middle">DONALD</text>
+        <use href="#mike" width="80" height="170" transform="translate(530.0 87.0) scale(-0.9 0.9)"/>
+        <text class="nm" x="494" y="255" text-anchor="middle">MIKE</text>
+        <path class="bub" d="M30 12 H242 A14 14 0 0 1 256 26 V60 A14 14 0 0 1 242 74 H86.80000000000001 L78 91 L68.80000000000001 74 H30 A14 14 0 0 1 16 60 V26 A14 14 0 0 1 30 12 Z"/>
+        <text class="bt" x="136" y="38" text-anchor="middle">The key user role</text>
+        <text class="bt" x="136" y="58" text-anchor="middle">is yours.</text>
+        <path class="bub" d="M394 26 H566 A14 14 0 0 1 580 40 V54 A14 14 0 0 1 566 68 H501.2 L492 91 L483.2 68 H394 A14 14 0 0 1 380 54 V40 A14 14 0 0 1 394 26 Z"/>
+        <text class="bt" x="480" y="52" text-anchor="middle">Thank you!</text>
+      </svg>
+      <figcaption>The panel’s decision.</figcaption>
+    </figure>
+    <p>Donald smiles at that last one. A week later, your manager tells you the key user role is yours.</p>
+  </section>
+
+  <!-- Chapter 13 -->
+  <section class="chapter" id="ch13">
+    <header><p class="eyebrow">Chapter 13</p><h2>One year later</h2></header>
+    <figure class="ill">
+      <svg viewBox="0 0 760 320" role="img" aria-label="Evening in the warehouse: bin 2-2-202 holds four oil filters under a sticky note reading oil filters 4 good, with a green check; beside it, a C_S4EWM certification badge">
+        <rect width="760" height="320" fill="#24364A"/>
+        <circle cx="660" cy="64" r="26" fill="#FFE36E" opacity=".85"/>
+        <circle cx="672" cy="56" r="24" fill="#24364A"/>
+        <rect x="0" y="282" width="760" height="38" fill="#1B2A3A"/>
+        <rect x="150" y="110" width="12" height="176" fill="#5B8DB0"/>
+        <rect x="470" y="110" width="12" height="176" fill="#5B8DB0"/>
+        <rect x="140" y="214" width="352" height="10" fill="#F5B700"/>
+        <rect x="140" y="278" width="352" height="10" fill="#F5B700"/>
+        <use href="#filter" x="190" y="160" width="42" height="56"/>
+        <use href="#filter" x="246" y="160" width="42" height="56"/>
+        <use href="#filter" x="302" y="160" width="42" height="56"/>
+        <use href="#filter" x="358" y="160" width="42" height="56"/>
+        <rect x="404" y="226" width="72" height="18" rx="3" fill="#F2F4F3"/>
+        <text x="440" y="239" text-anchor="middle" font-size="12" font-weight="800" fill="#17212B">2-2-202</text>
+        <g transform="rotate(-2 316 70)">
+          <rect x="216" y="32" width="200" height="78" fill="#FFE36E"/>
+          <rect x="216" y="32" width="200" height="12" fill="#F5D24A"/>
+          <text x="316" y="74" text-anchor="middle" font-size="19" font-weight="800" fill="#17212B">Oil filters: 4</text>
+          <text x="316" y="98" text-anchor="middle" font-size="15" font-weight="700" fill="#2E7D4F">(good)</text>
+        </g>
+        <circle cx="432" cy="44" r="20" fill="#2E9E6B"/>
+        <path d="M422 44 L430 52 L443 36" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+        <g transform="translate(610 190)">
+          <polygon points="-26,40 -40,96 -12,80 0,104 12,48" fill="#D9534F"/>
+          <polygon points="26,40 40,96 12,80 0,104 -12,48" fill="#B8423D"/>
+          <circle r="58" fill="#F5B700"/>
+          <circle r="46" fill="none" stroke="#17212B" stroke-width="3" stroke-dasharray="4 5"/>
+          <text y="-6" text-anchor="middle" font-size="12" font-weight="800" fill="#17212B" letter-spacing="1">SAP EWM</text>
+          <text y="16" text-anchor="middle" font-size="15" font-weight="800" fill="#17212B">C_S4EWM</text>
+        </g>
+      </svg>
+      <figcaption>The note and the shelf agree.</figcaption>
+    </figure>
+    <figure class="ill talk">
+      <svg viewBox="0 0 640 262" role="img" aria-label="A super-user asks Mike for help with a count while two more coworkers wait in line behind her, next to a take-a-number dispenser and a now serving 47 sign. Mike answers investigate first, then post">
+        <rect width="640" height="262" fill="#E4E9ED"/>
+        <rect x="0" y="240" width="640" height="22" fill="#B9C3CC"/>
+        <rect x="26" y="150" width="6" height="90" fill="#7D8B97"/><rect x="12" y="122" width="34" height="34" rx="6" fill="#D9534F"/><rect x="20" y="152" width="18" height="12" fill="#fff"/><text x="29" y="118" text-anchor="middle" font-size="9" font-weight="800" fill="#17212B">TAKE A #</text><rect x="384" y="112" width="80" height="44" rx="6" fill="#17212B"/><text x="424" y="128" text-anchor="middle" font-size="9" font-weight="800" fill="#9FB0BF" letter-spacing="1">NOW SERVING</text><text x="424" y="150" text-anchor="middle" font-size="20" font-weight="800" fill="#F5B700">47</text>
+        <use href="#coworker2" width="80" height="170" transform="translate(60 87.0) scale(0.9)"/>
+        <use href="#coworker3" width="80" height="170" transform="translate(170 87.0) scale(0.9)"/>
+        <use href="#coworker" width="80" height="170" transform="translate(280 87.0) scale(0.9)"/>
+        <text class="nm" x="316" y="255" text-anchor="middle">SUPER-USER</text>
+        <use href="#mike" width="80" height="170" transform="translate(540.0 87.0) scale(-0.9 0.9)"/>
+        <text class="nm" x="504" y="255" text-anchor="middle">MIKE</text>
+        <circle class="bub" cx="98" cy="84" r="12"/><text x="98" y="90" text-anchor="middle" font-size="16" font-weight="800" fill="#17212B">?</text><circle class="bub" cx="208" cy="86" r="12"/><text x="208" y="92" text-anchor="middle" font-size="16" font-weight="800" fill="#17212B">?</text>
+        <path class="bub" d="M164 10 H386 A14 14 0 0 1 400 24 V58 A14 14 0 0 1 386 72 H326.8 L318 91 L308.8 72 H164 A14 14 0 0 1 150 58 V24 A14 14 0 0 1 164 10 Z"/>
+        <text class="bt" x="275" y="36" text-anchor="middle">Mike, can you help</text>
+        <text class="bt" x="275" y="56" text-anchor="middle">with this count?</text>
+        <path class="bub" d="M424 10 H616 A14 14 0 0 1 630 24 V58 A14 14 0 0 1 616 72 H511.2 L502 91 L493.2 72 H424 A14 14 0 0 1 410 58 V24 A14 14 0 0 1 424 10 Z"/>
+        <text class="bt" x="520" y="36" text-anchor="middle">Investigate first,</text>
+        <text class="bt" x="520" y="56" text-anchor="middle">then post.</text>
+      </svg>
+      <figcaption>A year later, Mike is the one people ask. There is now a line.</figcaption>
+    </figure>
+    <p>A year after that first morning at T-Brothers, the hub at <span class="mem">Carr Industries</span> is live on EWM, and people come to you with their EWM questions. You're the site's <b class="card">key user</b>: the go-to person inside the company who knows the system best and supports others. Each shift also has a <b class="card">super-user</b>, a floor-level expert who helps coworkers use the system. You trained most of them.</p>
+    <p>Robert, the <b class="card">warehouse systems analyst</b> at T-Brothers, still sits between the warehouse floor and IT, troubleshooting and supporting the system. You still call him when you get stuck. This spring, a <b class="card">functional consultant</b> from an SAP partner firm arrived to design and configure your company's S/4HANA upgrade, and your manager put you on the project team.</p>
+    <figure class="spot">
+      <svg viewBox="0 0 400 250" role="img" aria-label="A four-step staircase: user-side role, key user, implementation project, configuration, with a you are here marker on step three">
+        <rect width="400" height="250" fill="#E4E9ED"/>
+        <g fill="#2E5E7E">
+          <rect x="16" y="190" width="92" height="44"/>
+          <rect x="108" y="150" width="92" height="84"/>
+          <rect x="200" y="110" width="92" height="124"/>
+          <rect x="292" y="70" width="92" height="164"/>
+        </g>
+        <rect x="200" y="110" width="92" height="124" fill="#F5B700"/>
+        <g font-size="12" font-weight="800" text-anchor="middle">
+          <text x="62" y="212" fill="#fff">User-side</text><text x="62" y="226" fill="#fff">role</text>
+          <text x="154" y="176" fill="#fff">Key user</text>
+          <text x="246" y="136" fill="#17212B">Implementation</text><text x="246" y="150" fill="#17212B">project</text>
+          <text x="338" y="96" fill="#fff">Configuration</text>
+        </g>
+        <g font-size="22" font-weight="800" fill="#17212B" text-anchor="middle" opacity=".18">
+          <text x="62" y="186">1</text><text x="154" y="146">2</text><text x="338" y="66">4</text>
+        </g>
+        <use href="#mike" x="230" y="42" width="32" height="68"/>
+        <rect x="136" y="40" width="88" height="26" rx="13" fill="#17212B"/>
+        <text x="180" y="58" text-anchor="middle" font-size="12" font-weight="800" fill="#F5B700">YOU'RE HERE</text>
+      </svg>
+      <figcaption>Step three of four.</figcaption>
+    </figure>
+    <p>You think about the <b class="card">career path to configuration</b> you sketched a year ago: user-side role, then key user, then implementation project, then configuration. You're on step three.</p>
+    <p>In the evenings, you've been working through <b class="card">SAP Learning</b>, SAP's site at learning.sap.com with free EWM courses. You're following its <b class="card">learning journey</b>, SAP's recommended sequence of courses for a certification.</p>
+    <p>The certification is <b class="card">C_S4EWM</b>, the exam code for SAP Certified Associate – Extended Warehouse Management in SAP S/4HANA. The <b class="card">SAP EWM certification</b> is aimed at consultants, but it doesn't require project experience. It's a hands-on exam, and you'll keep it valid with a yearly assessment. With system access every day, you're ready.</p>
+    <p>On a visit back to T-Brothers one evening, you pass 2-2-202. Four oil filters on the shelf. You picture the sticky note floating above them: <em>Oil filters: 4 (good).</em></p>
+    <p>The note and the shelf agree.</p>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>T-Brothers: The Whole Story · 13 chapters · <a href="#ch1">Back to Chapter 1</a></p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var btn=document.getElementById('menu-btn'),panel=document.getElementById('menu-panel'),scrim=document.getElementById('menu-scrim');
+  var links=panel.querySelectorAll('a');
+  function setOpen(open){
+    btn.setAttribute('aria-expanded',open?'true':'false');
+    btn.setAttribute('aria-label',open?'Close chapter menu':'Open chapter menu');
+    panel.classList.toggle('open',open); scrim.classList.toggle('open',open);
+    if(open){var c=panel.querySelector('a.current')||links[0]; setTimeout(function(){c.focus();},50);}
+  }
+  btn.addEventListener('click',function(){setOpen(btn.getAttribute('aria-expanded')!=='true');});
+  scrim.addEventListener('click',function(){setOpen(false);});
+  links.forEach(function(a){a.addEventListener('click',function(){setOpen(false);});});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&panel.classList.contains('open')){setOpen(false);btn.focus();}});
+  // Highlight the chapter being read
+  var sections=[].slice.call(document.querySelectorAll('section.chapter'));
+  function mark(){
+    var y=window.scrollY+window.innerHeight*0.3,cur=null;
+    sections.forEach(function(sec){if(sec.offsetTop<=y)cur=sec.id;});
+    links.forEach(function(a){a.classList.toggle('current',cur&&a.getAttribute('href')==='#'+cur);});
+  }
+  window.addEventListener('scroll',mark,{passive:true}); mark();
+})();
+</script>
+</body>
+</html>
